@@ -4,6 +4,8 @@ import os
 
 _VERSION = "0.1"
 
+_HTML_DIR = "html"
+
 _BAD_LABEL = "div style=\"margin-bottom:5px; box-shadow:0px 0px 2px 4px red;\""
 _GOOD_LABEL = "div style=\"margin-bottom:5px; box-shadow:0px 0px 2px 4px chartreuse;\""
 _SYNERGY_LABEL = "div style=\"margin-bottom:5px; box-shadow:0px 0px 2px 4px skyblue;\""
@@ -45,13 +47,18 @@ def print_hero(hero, filename):
     f.write(", ".join(GOOD_LIST))
     f.write(";")
     f.write(", ".join(SYNERGY_LIST))
+    f.write("\n")
 
 def main():
-    os.remove(_OUT_FILENAME)
+    if os.path.isfile(_OUT_FILENAME):
+        os.remove(_OUT_FILENAME)
 
-    process_file("html/Abaddon_Counters - Dota 2 Wiki.html")
+    hero_files = os.listdir(_HTML_DIR)
 
-    print_hero("Abaddon", _OUT_FILENAME)
+    for hero_name in hero_files:
+        process_file(_HTML_DIR + "/" + hero_name)
+
+        print_hero(hero_name, _OUT_FILENAME)
 
 if __name__ == '__main__':
   main()
