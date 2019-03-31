@@ -10,7 +10,7 @@ _BAD_LABEL = "div style=\"margin-bottom:5px; box-shadow:0px 0px 2px 4px red;\""
 _GOOD_LABEL = "div style=\"margin-bottom:5px; box-shadow:0px 0px 2px 4px chartreuse;\""
 _SYNERGY_LABEL = "div style=\"margin-bottom:5px; box-shadow:0px 0px 2px 4px skyblue;\""
 
-_OUT_FILENAME = "Database.csv"
+_OUT_FILENAME = "../database/Database.csv"
 
 BAD_LIST = []
 GOOD_LIST = []
