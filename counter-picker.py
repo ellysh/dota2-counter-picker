@@ -10,7 +10,7 @@ _HEROES_FILE = "database/Database.csv"
 _DEFAULT_COLOR = "#d9d9d9"
 _AZURE_COLOR = "#5795f9"
 _GREEN_COLOR = "#66ce54"
-_PURPLE_COLOR = "#8757f9"
+_YELLOW_COLOR = "#f9ef31"
 _RED_COLOR = "#ff4f4f"
 
 HEROES = {}
@@ -52,7 +52,7 @@ def highlight_related_heroes(hero_name, index, color):
 
 def button_click(hero_name):
   global _RED_COLOR
-  global _PURPLE_COLOR
+  global _YELLOW_COLOR
   global _GREEN_COLOR
   global _AZURE_COLOR
   global BUTTONS
@@ -60,7 +60,7 @@ def button_click(hero_name):
 
   reset_all_buttons()
 
-  BUTTONS[hero_name][0].config(bg = _PURPLE_COLOR)
+  BUTTONS[hero_name][0].config(bg = _YELLOW_COLOR)
 
   highlight_related_heroes(hero_name, 0, _RED_COLOR)
 
@@ -116,7 +116,6 @@ def add_buttons(window):
 
 def make_window():
   global _RED_COLOR
-  global _PURPLE_COLOR
   global _GREEN_COLOR
   global _AZURE_COLOR
   global VERSION
