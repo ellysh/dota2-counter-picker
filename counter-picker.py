@@ -115,6 +115,10 @@ def add_buttons(window):
     column, row = get_next_cell(column, row)
 
 def make_window():
+  global _RED_COLOR
+  global _PURPLE_COLOR
+  global _GREEN_COLOR
+  global _AZURE_COLOR
   global VERSION
 
   window = Tk()
@@ -128,6 +132,29 @@ def make_window():
 
   info_frame = Frame(height = 2, bd = 1, relief = SUNKEN)
   info_frame.pack(fill = BOTH, expand = True)
+
+
+  color1 = Label(info_frame, bg = _RED_COLOR, width = 4, height = 1)
+  color1.grid(column = 0, row = 0)
+
+  color2 = Label(info_frame, bg = _GREEN_COLOR, width = 4, height = 1)
+  color2.grid(column = 0, row = 1)
+
+  color3 = Label(info_frame, bg = _AZURE_COLOR, width = 4, height = 1)
+  color3.grid(column = 0, row = 2)
+
+
+  bad_label = Label(info_frame, font=("Arial Bold", 12), \
+                    text = "Bad against...")
+  bad_label.grid(column = 1, row = 0, sticky = W, padx = (20, 0))
+
+  good_label = Label(info_frame, font=("Arial Bold", 12), \
+                     text = "Good against...")
+  good_label.grid(column = 1, row = 1, sticky = W, padx = (20, 0))
+
+  works_label = Label(info_frame, font=("Arial Bold", 12), \
+                      text = "Works well with...")
+  works_label.grid(column = 1, row = 2, sticky = W, padx = (20, 0))
 
   window.mainloop()
 
