@@ -33,22 +33,40 @@ def load_heroes():
   load_table(_HEROES_FILE, HEROES)
 
 def reset_all_buttons():
-  global BUTTONS
+  global BUTTON
 
   for key, value in BUTTONS.iteritems():
     value[0].config(bg = _DEFAULT_COLOR)
 
-def highlight_related_heroes(hero_name):
-    pass
+def highlight_related_heroes(hero_name, index, color):
+  global _DEFAULT_COLOR
+  global BUTTON
+  global HEROES
+
+  print(HEROES[hero_name][index])
+  related_heroes = HEROES[hero_name][index].split(', ')
+
+  for key, value in BUTTONS.iteritems():
+    if key != hero_name:
+      new_color = _DEFAULT_COLOR
+
+      if key in related_heroes:
+        new_color = color
+
+      value[0].config(bg = new_color)
+
 
 def button_click(hero_name):
   global _RED_COLOR
+  global _PURPLE_COLOR
   global BUTTONS
   global HEROES
 
   reset_all_buttons()
 
-  BUTTONS[hero_name][0].config(bg = _RED_COLOR)
+  BUTTONS[hero_name][0].config(bg = _PURPLE_COLOR)
+
+  highlight_related_heroes(hero_name, 1, _RED_COLOR)
 
 def add_button(window, button_click, hero, column, row):
   button = Button(window)
