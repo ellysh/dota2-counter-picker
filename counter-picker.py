@@ -4,10 +4,8 @@ from Tkinter import *
 from csv import reader
 from PIL import ImageTk,Image
 
-_VERSION = "1.1"
-_PIECES_FILE = "database/csv/pieces.csv"
-_SPECIES_FILE = "database/csv/species.csv"
-_CLASSES_FILE = "database/csv/classes.csv"
+_VERSION = "0.1"
+_HEROES_FILE = "database/Database.csv"
 
 _DEFAULT_COLOR = "#d9d9d9"
 _AZURE_COLOR = "#5795f9"
@@ -17,48 +15,22 @@ _YELLOW_COLOR = "#f9ef31"
 _PURPLE_COLOR = "#8757f9"
 _RED_COLOR = "#ff4f4f"
 
-PIECES = {}
-SPECIES = {}
-CLASSES = {}
-
-SPECIES_DESCRIPTION_1 = None
-SPECIES_NUMBER_1 = None
-
-SPECIES_DESCRIPTION_2 = None
-SPECIES_NUMBER_2 = None
-
-CLASS_DESCRIPTION = None
-CLASS_NUMBER = None
-
-SKILL_DESCRIPTION = None
+HEROES = {}
 
 BUTTONS = {}
 
-def load_table(filename, table, max_column):
+def load_table(filename, table):
   with open(filename) as csv_file:
     csv_reader = reader(csv_file, delimiter=';')
     next(csv_file)
 
     for line in csv_reader:
-      if max_column == 4:
-        table[line[0]] = [line[1], line[2], line[3], line[4]]
-      else:
-        table[line[0]] = [line[1], line[2]]
+        table[line[0]] = [line[1], line[2], line[3]]
 
 def load_pieces():
-  global PIECES
+  global HEROES
 
-  load_table(_PIECES_FILE, PIECES, 4)
-
-def load_species():
-  global SPECIES
-
-  load_table(_SPECIES_FILE, SPECIES, 2)
-
-def load_classes():
-  global CLASSES
-
-  load_table(_CLASSES_FILE, CLASSES, 2)
+  load_table(_HEROES_FILE, HEROES)
 
 def reset_all_buttons():
   global BUTTONS
@@ -135,7 +107,7 @@ def button_click(piece_name):
 
   SKILL_DESCRIPTION.config(text = PIECES[piece_name][3])
 
-def add_button(window, button_click, piece, level, column, row):
+def add_button(window, button_click, piece, column, row):
   button = Button(window)
   button.grid(column = column, row = row)
 
@@ -143,20 +115,20 @@ def add_button(window, button_click, piece, level, column, row):
                            "images/pieces/" + piece + ".png"))
 
   button.config(image = img, command = lambda:button_click(piece), \
-                compound = TOP, text = '* ' * int(level), \
+                compound = TOP, \
                 font=("Arial Bold", 5), pady = 0, padx = 0)
 
   return button, img
 
 def add_buttons(window):
   global BUTTONS
-  global PIECES
+  global HEROES
 
   row = 0
   column = 0
 
-  for key, value in PIECES.iteritems():
-    BUTTONS[key] = add_button(window, button_click, key, value[2], \
+  for key, _ in HEROES.iteritems():
+    BUTTONS[key] = add_button(window, button_click, key, \
                               column, row)
 
     column += 1
@@ -182,7 +154,7 @@ def make_window():
 
   window = Tk()
 
-  window.title("Dota Auto Chess Pieces Picker " + _VERSION)
+  window.title("Dota 2 Counter Picker " + _VERSION)
 
   buttons_frame = Frame(height = 2, bd = 1, relief = SUNKEN)
   buttons_frame.pack(fill = BOTH, expand = True)
@@ -192,62 +164,10 @@ def make_window():
   info_frame = Frame(height = 2, bd = 1, relief = SUNKEN)
   info_frame.pack(fill = BOTH, expand = True)
 
-
-  color1 = Label(info_frame, bg = _GREEN_COLOR, width = 4, height = 1)
-  color1.grid(column = 0, row = 0)
-
-  color2 = Label(info_frame, bg = _YELLOW_COLOR, width = 4, height = 1)
-  color2.grid(column = 0, row = 1)
-
-  color3 = Label(info_frame, bg = _AZURE_COLOR, width = 4, height = 1)
-  color3.grid(column = 0, row = 2)
-
-  color4 = Label(info_frame, bg = _PURPLE_COLOR, width = 4, height = 1)
-  color4.grid(column = 0, row = 3)
-
-  color5 = Label(info_frame, bg = _RED_COLOR, width = 4, height = 1)
-  color5.grid(column = 0, row = 4)
-
-
-  SPECIES_NUMBER_1 = Label(info_frame, font=("Arial Bold", 12))
-  SPECIES_NUMBER_1.grid(column = 1, row = 0, sticky = W, padx = (10, 0))
-
-  SPECIES_NUMBER_2 = Label(info_frame, font=("Arial Bold", 12))
-  SPECIES_NUMBER_2.grid(column = 1, row = 1, sticky = W, padx = (10, 0))
-
-  CLASS_NUMBER = Label(info_frame, font=("Arial Bold", 12))
-  CLASS_NUMBER.grid(column = 1, row = 2, sticky = W, padx = (10, 0))
-
-
-  SPECIES_DESCRIPTION_1 = Label(info_frame, font=("Arial Bold", 12), \
-                                wraplength=300, anchor=NW, justify=LEFT)
-  SPECIES_DESCRIPTION_1.grid(column = 2, row = 0, sticky = W, padx = (10, 0))
-
-  SPECIES_DESCRIPTION_2 = Label(info_frame, font=("Arial Bold", 12), \
-                                wraplength=300, anchor=NW, justify=LEFT)
-  SPECIES_DESCRIPTION_2.grid(column = 2, row = 1, sticky = W, padx = (10, 0))
-
-  CLASS_DESCRIPTION = Label(info_frame, font=("Arial Bold", 12), \
-                            wraplength=300, anchor=NW, justify=LEFT)
-  CLASS_DESCRIPTION.grid(column = 2, row = 2, sticky = W, padx = (10, 0))
-
-  both_description = Label(info_frame, text = "Both species and class \
-matches", font=("Arial Bold", 12), wraplength=300, anchor=NW, \
-    justify=LEFT)
-  both_description.grid(column = 2, row = 3, sticky = W, padx = (10, 0))
-
-  SKILL_DESCRIPTION = Label(info_frame, font=("Arial Bold", 12), \
-                            wraplength=300, anchor=NW, justify=LEFT)
-  SKILL_DESCRIPTION.grid(column = 2, row = 4, sticky = W, padx = (10, 0))
-
   window.mainloop()
 
 def main():
   load_pieces()
-
-  load_species()
-
-  load_classes()
 
   make_window()
 
