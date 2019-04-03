@@ -112,7 +112,7 @@ def add_button(window, button_click, piece, column, row):
   button.grid(column = column, row = row)
 
   img = ImageTk.PhotoImage(Image.open( \
-                           "images/pieces/" + piece + ".png"))
+                           "images/heroes/" + piece + ".png"))
 
   button.config(image = img, command = lambda:button_click(piece), \
                 compound = TOP, \
