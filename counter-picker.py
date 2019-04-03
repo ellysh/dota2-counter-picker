@@ -62,11 +62,11 @@ def button_click(hero_name):
 
   BUTTONS[hero_name][0].config(bg = _YELLOW_COLOR)
 
+  highlight_related_heroes(hero_name, 2, _AZURE_COLOR)
+
   highlight_related_heroes(hero_name, 0, _RED_COLOR)
 
   highlight_related_heroes(hero_name, 1, _GREEN_COLOR)
-
-  highlight_related_heroes(hero_name, 2, _AZURE_COLOR)
 
 def add_label(window, letter, column, row):
   label = Label(window, text=letter, font=("Arial Bold", 12))
