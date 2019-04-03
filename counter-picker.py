@@ -88,7 +88,7 @@ def add_buttons(window):
   row = 0
   column = 0
 
-  for key, _ in HEROES.iteritems():
+  for key in sorted(HEROES.keys()):
     BUTTONS[key] = add_button(window, button_click, key, \
                               column, row)
 
