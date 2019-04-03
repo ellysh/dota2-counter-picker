@@ -25,6 +25,10 @@ def process_file(filename):
     global GOOD_LIST
     global SYNERGY_LIST
 
+    BAD_LIST = []
+    GOOD_LIST = []
+    SYNERGY_LIST = []
+
     f = open(filename, "r")
     for line in f:
         if _BAD_LABEL in line:
