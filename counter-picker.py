@@ -27,7 +27,7 @@ def load_table(filename, table):
     for line in csv_reader:
         table[line[0]] = [line[1], line[2], line[3]]
 
-def load_pieces():
+def load_heroes():
   global HEROES
 
   load_table(_HEROES_FILE, HEROES)
@@ -38,23 +38,26 @@ def reset_all_buttons():
   for key, value in BUTTONS.iteritems():
     value[0].config(bg = _DEFAULT_COLOR)
 
-def button_click(piece_name):
+def highlight_related_heroes(hero_name):
+    pass
+
+def button_click(hero_name):
   global _RED_COLOR
   global BUTTONS
   global HEROES
 
   reset_all_buttons()
 
-  BUTTONS[piece_name][0].config(bg = _RED_COLOR)
+  BUTTONS[hero_name][0].config(bg = _RED_COLOR)
 
-def add_button(window, button_click, piece, column, row):
+def add_button(window, button_click, hero, column, row):
   button = Button(window)
   button.grid(column = column, row = row)
 
   img = ImageTk.PhotoImage(Image.open( \
-                           "images/heroes/" + piece + ".png"))
+                           "images/heroes/" + hero + ".png"))
 
-  button.config(image = img, command = lambda:button_click(piece), \
+  button.config(image = img, command = lambda:button_click(hero), \
                 compound = TOP, \
                 font=("Arial Bold", 5), pady = 0, padx = 0)
 
@@ -79,18 +82,6 @@ def add_buttons(window):
 
 def make_window():
   global VERSION
-  global SPECIES_DESCRIPTION_1
-  global SPECIES_NUMBER_1
-  global SPECIES_DESCRIPTION_2
-  global SPECIES_NUMBER_2
-  global CLASS_DESCRIPTION
-  global CLASS_NUMBER
-  global SKILL_DESCRIPTION
-  global _PURPLE_COLOR
-  global _GREEN_COLOR
-  global _YELLOW_COLOR
-  global _AZURE_COLOR
-  global _RED_COLOR
 
   window = Tk()
 
@@ -107,7 +98,7 @@ def make_window():
   window.mainloop()
 
 def main():
-  load_pieces()
+  load_heroes()
 
   make_window()
 
