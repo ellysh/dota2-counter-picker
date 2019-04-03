@@ -68,6 +68,10 @@ def button_click(hero_name):
 
   highlight_related_heroes(hero_name, 2, _AZURE_COLOR)
 
+def add_label(window, letter, column, row):
+  label = Label(window, text=letter, font=("Arial Bold", 12))
+  label.grid(column = column, row = row)
+
 def add_button(window, button_click, hero, column, row):
   button = Button(window)
   button.grid(column = column, row = row)
@@ -81,6 +85,15 @@ def add_button(window, button_click, hero, column, row):
 
   return button, img
 
+def get_next_cell(column, row):
+  column += 1
+
+  if 10 < column:
+    column = 0
+    row += 1
+
+  return column, row
+
 def add_buttons(window):
   global BUTTONS
   global HEROES
@@ -88,15 +101,18 @@ def add_buttons(window):
   row = 0
   column = 0
 
+  last_letter = ''
   for key in sorted(HEROES.keys()):
+    if key[0] != last_letter:
+      last_letter = key[0]
+      add_label(window, last_letter, column, row)
+
+      column, row = get_next_cell(column, row)
+
     BUTTONS[key] = add_button(window, button_click, key, \
                               column, row)
 
-    column += 1
-
-    if 10 < column:
-      column = 0
-      row += 1
+    column, row = get_next_cell(column, row)
 
 def make_window():
   global VERSION
