@@ -114,6 +114,15 @@ def add_buttons(window):
 
     column, row = get_next_cell(column, row)
 
+def edit_list(index):
+    # TODO: Implement this function
+    # 1. Hightlight only heroes of the choosed index (list[index]) for
+    # the active hero
+
+    # 2. Change behavior of all hero buttons to the "edit mode"
+
+    pass
+
 def make_window():
   global _RED_COLOR
   global _GREEN_COLOR
@@ -133,14 +142,25 @@ def make_window():
   info_frame.pack(fill = BOTH, expand = True)
 
 
-  color1 = Label(info_frame, bg = _RED_COLOR, width = 4, height = 1)
-  color1.grid(column = 0, row = 0)
+  bad_button = Button(info_frame)
+  bad_button.grid(column = 0, row = 0)
+  bad_button.config(command = lambda:edit_list(0), \
+                compound = TOP, bg = _RED_COLOR, width = 8, height = 2, \
+                font=("Arial Bold", 5), pady = 0, padx = 0)
 
-  color2 = Label(info_frame, bg = _GREEN_COLOR, width = 4, height = 1)
-  color2.grid(column = 0, row = 1)
 
-  color3 = Label(info_frame, bg = _AZURE_COLOR, width = 4, height = 1)
-  color3.grid(column = 0, row = 2)
+  good_button = Button(info_frame)
+  good_button.grid(column = 0, row = 1)
+  good_button.config(command = lambda:edit_list(1), \
+                compound = TOP, bg = _GREEN_COLOR, width = 8, height = 2, \
+                font=("Arial Bold", 5), pady = 0, padx = 0)
+
+
+  well_button = Button(info_frame)
+  well_button.grid(column = 0, row = 2)
+  well_button.config(command = lambda:edit_list(2), \
+                compound = TOP, bg = _AZURE_COLOR, width = 8, height = 2, \
+                font=("Arial Bold", 5), pady = 0, padx = 0)
 
 
   bad_label = Label(info_frame, font=("Arial Bold", 12), \
