@@ -13,8 +13,10 @@ _GREEN_COLOR = "#66ce54"
 _YELLOW_COLOR = "#f9ef31"
 _RED_COLOR = "#ff4f4f"
 
-HEROES = {}
+SELECTED_HERO = None
+ACTIVE_LIST = []
 
+HEROES = {}
 BUTTONS = {}
 
 def load_table(filename, table):
@@ -114,14 +116,17 @@ def add_buttons(window):
 
     column, row = get_next_cell(column, row)
 
-def edit_list(index):
+def edit_list(button, index):
     # TODO: Implement this function
     # 1. Hightlight only heroes of the choosed index (list[index]) for
     # the active hero
 
     # 2. Change behavior of all hero buttons to the "edit mode"
 
-    pass
+    if button.config('relief')[-1] == 'sunken':
+        button.config(relief="raised")
+    else:
+        button.config(relief="sunken")
 
 def make_window():
   global _RED_COLOR
@@ -144,23 +149,23 @@ def make_window():
 
   bad_button = Button(info_frame)
   bad_button.grid(column = 0, row = 0)
-  bad_button.config(command = lambda:edit_list(0), \
+  bad_button.config(command = lambda:edit_list(bad_button, 0), \
                 compound = TOP, bg = _RED_COLOR, width = 8, height = 2, \
-                font=("Arial Bold", 5), pady = 0, padx = 0)
+                font=("Arial Bold", 5), pady = 0, padx = 0, relief="raised")
 
 
   good_button = Button(info_frame)
   good_button.grid(column = 0, row = 1)
-  good_button.config(command = lambda:edit_list(1), \
+  good_button.config(command = lambda:edit_list(good_button, 1), \
                 compound = TOP, bg = _GREEN_COLOR, width = 8, height = 2, \
-                font=("Arial Bold", 5), pady = 0, padx = 0)
+                font=("Arial Bold", 5), pady = 0, padx = 0, relief="raised")
 
 
   well_button = Button(info_frame)
   well_button.grid(column = 0, row = 2)
-  well_button.config(command = lambda:edit_list(2), \
+  well_button.config(command = lambda:edit_list(well_button, 2), \
                 compound = TOP, bg = _AZURE_COLOR, width = 8, height = 2, \
-                font=("Arial Bold", 5), pady = 0, padx = 0)
+                font=("Arial Bold", 5), pady = 0, padx = 0, relief="raised")
 
 
   bad_label = Label(info_frame, font=("Arial Bold", 12), \
