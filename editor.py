@@ -78,8 +78,10 @@ def edit_database(edited_hero):
   global SELECTED_HERO
   global ACTIVE_INDEX
 
-  if edited_hero in HEROES[SELECTED_HERO][ACTIVE_INDEX]:
+  if ', ' + edited_hero in HEROES[SELECTED_HERO][ACTIVE_INDEX]:
     HEROES[SELECTED_HERO][ACTIVE_INDEX] = HEROES[SELECTED_HERO][ACTIVE_INDEX].replace(', ' + edited_hero, '')
+  elif edited_hero in HEROES[SELECTED_HERO][ACTIVE_INDEX]:
+    HEROES[SELECTED_HERO][ACTIVE_INDEX] = HEROES[SELECTED_HERO][ACTIVE_INDEX].replace(edited_hero, '')
   else:
     HEROES[SELECTED_HERO][ACTIVE_INDEX] = HEROES[SELECTED_HERO][ACTIVE_INDEX] + ', ' + edited_hero
 
