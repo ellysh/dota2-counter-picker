@@ -19,6 +19,8 @@ _INDEX_COLORS = {
   1 : _GREEN_COLOR,
   2 : _AZURE_COLOR}
 
+INDEX_BUTTONS = {}
+
 SELECTED_HERO = None
 ACTIVE_INDEX = None
 
@@ -154,14 +156,26 @@ def add_buttons(window):
 
     column, row = get_next_cell(column, row)
 
-def edit_list(button, index):
+def toggle_index_button(index):
+  global INDEX_BUTTONS
+
+  for key in INDEX_BUTTONS.keys():
+    if key != index:
+      INDEX_BUTTONS[key].config(relief="raised")
+
+  if INDEX_BUTTONS[index].config("relief")[-1] == "sunken":
+      INDEX_BUTTONS[index].config(relief="raised")
+  else:
+      INDEX_BUTTONS[index].config(relief="sunken")
+
+def edit_list(index):
   global SELECTED_HERO
   global ACTIVE_INDEX
 
-  if button.config("relief")[-1] == "sunken":
-      button.config(relief="raised")
-  else:
-      button.config(relief="sunken")
+  if not SELECTED_HERO:
+    return
+
+  toggle_index_button(index)
 
   if index == ACTIVE_INDEX:
     ACTIVE_INDEX = None
@@ -180,6 +194,7 @@ def make_window():
   global _RED_COLOR
   global _GREEN_COLOR
   global _AZURE_COLOR
+  global INDEX_BUTTONS
   global VERSION
 
   window = Tk()
@@ -195,23 +210,23 @@ def make_window():
   info_frame.pack(fill = BOTH, expand = True)
 
 
-  bad_button = Button(info_frame)
-  bad_button.grid(column = 0, row = 0)
-  bad_button.config(command = lambda:edit_list(bad_button, 0), \
+  INDEX_BUTTONS[0] = Button(info_frame)
+  INDEX_BUTTONS[0].grid(column = 0, row = 0)
+  INDEX_BUTTONS[0].config(command = lambda:edit_list(0), \
                 compound = TOP, bg = _RED_COLOR, width = 8, height = 2, \
                 font=("Arial Bold", 5), pady = 0, padx = 0, relief="raised")
 
 
-  good_button = Button(info_frame)
-  good_button.grid(column = 0, row = 1)
-  good_button.config(command = lambda:edit_list(good_button, 1), \
+  INDEX_BUTTONS[1] = Button(info_frame)
+  INDEX_BUTTONS[1].grid(column = 0, row = 1)
+  INDEX_BUTTONS[1].config(command = lambda:edit_list(1), \
                 compound = TOP, bg = _GREEN_COLOR, width = 8, height = 2, \
                 font=("Arial Bold", 5), pady = 0, padx = 0, relief="raised")
 
 
-  well_button = Button(info_frame)
-  well_button.grid(column = 0, row = 2)
-  well_button.config(command = lambda:edit_list(well_button, 2), \
+  INDEX_BUTTONS[2] = Button(info_frame)
+  INDEX_BUTTONS[2].grid(column = 0, row = 2)
+  INDEX_BUTTONS[2].config(command = lambda:edit_list(2), \
                 compound = TOP, bg = _AZURE_COLOR, width = 8, height = 2, \
                 font=("Arial Bold", 5), pady = 0, padx = 0, relief="raised")
 
