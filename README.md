@@ -41,13 +41,13 @@ https://github.com/ellysh/dota2-counter-picker/archive/master.zip
 
 ## Usage
 
-### Counter Picker
+### Picker
 
-The `counter-picker.py` script shows you which heroes are bad or good against the picked one. Also, the script shows which heroes can be combined well.
+The `picker.py` script shows you which heroes are bad or good against the picked one. Also, the script shows which heroes can be combined well.
 
-![Counter Picker](counter-picker-window.png)
+![Picker](counter-picker-window.png)
 
-Start the `counter-picker.py` script and click on the hero icon. The yellow color will highlight it. The red color highlights all heroes who can easily beat the selected one. The green color means that these heroes are weak against the selected one. The blue color shows which heroes can be combined effectively with the selected hero in one team.
+Start the `picker.py` script and click on the hero icon. The yellow color will highlight it. The red color highlights all heroes who can easily beat the selected one. The green color means that these heroes are weak against the selected one. The blue color shows which heroes can be combined effectively with the selected hero in one team.
 
 ## Contacts
 

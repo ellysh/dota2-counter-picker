@@ -122,7 +122,7 @@ def make_window():
 
   window = Tk()
 
-  window.title("Dota 2 Counter Picker " + _VERSION)
+  window.title("Dota 2 Picker " + _VERSION)
 
   buttons_frame = Frame(height = 2, bd = 1, relief = SUNKEN)
   buttons_frame.pack(fill = BOTH, expand = True)
