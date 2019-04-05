@@ -1,4 +1,4 @@
-# Dota 2 Counter Picker 0.1 version
+# Dota 2 Counter Picker 0.2 version
 
 Dota 2 Counter Picker is an utility for choosing best combinations of heroes for "all pick" matches.
 
