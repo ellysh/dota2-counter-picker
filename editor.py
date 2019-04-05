@@ -31,11 +31,26 @@ def load_heroes():
   with open(_HEROES_FILE, "rb") as handle:
     HEROES = pickle.load(handle)
 
+def write_heroes():
+  global HEROES
+
+  with open(_HEROES_FILE, "wb") as handle:
+    pickle.dump(HEROES, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
 def reset_all_buttons():
   global BUTTON
 
   for key, value in BUTTONS.iteritems():
     value[0].config(bg = _DEFAULT_COLOR)
+
+def reset_highlight():
+  global _YELLOW_COLOR
+  global BUTTONS
+  global SELECTED_HERO
+
+  reset_all_buttons()
+
+  BUTTONS[SELECTED_HERO][0].config(bg = _YELLOW_COLOR)
 
 def highlight_related_heroes(hero_name, index):
   global _INDEX_COLORS
@@ -56,9 +71,7 @@ def highlight_all_relations(hero_name):
   global BUTTONS
   global HEROES
 
-  reset_all_buttons()
-
-  BUTTONS[hero_name][0].config(bg = _YELLOW_COLOR)
+  reset_highlight()
 
   highlight_related_heroes(hero_name, 2)
 
@@ -79,6 +92,8 @@ def edit_database(edited_hero):
   else:
     HEROES[SELECTED_HERO][ACTIVE_INDEX] = HEROES[SELECTED_HERO][ACTIVE_INDEX] + ', ' + edited_hero
 
+  write_heroes()
+
 def button_click(hero_name):
   global SELECTED_HERO
 
@@ -88,6 +103,8 @@ def button_click(hero_name):
     highlight_all_relations(hero_name)
   else:
     edit_database(hero_name)
+
+    reset_highlight()
 
     highlight_related_heroes(SELECTED_HERO, ACTIVE_INDEX)
 
