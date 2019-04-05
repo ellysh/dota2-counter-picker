@@ -15,6 +15,7 @@ _RED_COLOR = "#ff4f4f"
 
 SELECTED_HERO = None
 ACTIVE_LIST = []
+ACTIVE_INDEX = None
 
 HEROES = {}
 BUTTONS = {}
@@ -59,6 +60,9 @@ def button_click(hero_name):
   global _AZURE_COLOR
   global BUTTONS
   global HEROES
+  global SELECTED_HERO
+
+  SELECTED_HERO = hero_name
 
   reset_all_buttons()
 
@@ -116,17 +120,27 @@ def add_buttons(window):
 
     column, row = get_next_cell(column, row)
 
-def edit_list(button, index):
-    # TODO: Implement this function
-    # 1. Hightlight only heroes of the choosed index (list[index]) for
-    # the active hero
+def edit_list(button, index, color):
+  global SELECTED_HERO
+  global ACTIVE_INDEX
 
-    # 2. Change behavior of all hero buttons to the "edit mode"
+  if button.config('relief')[-1] == 'sunken':
+      button.config(relief="raised")
+  else:
+      button.config(relief="sunken")
 
-    if button.config('relief')[-1] == 'sunken':
-        button.config(relief="raised")
-    else:
-        button.config(relief="sunken")
+  if index == ACTIVE_INDEX:
+    ACTIVE_INDEX = None
+    button_click(SELECTED_HERO)
+    return
+  else:
+    ACTIVE_INDEX = index
+
+  reset_all_buttons()
+
+  BUTTONS[SELECTED_HERO][0].config(bg = _YELLOW_COLOR)
+
+  highlight_related_heroes(SELECTED_HERO, index, color)
 
 def make_window():
   global _RED_COLOR
@@ -149,21 +163,21 @@ def make_window():
 
   bad_button = Button(info_frame)
   bad_button.grid(column = 0, row = 0)
-  bad_button.config(command = lambda:edit_list(bad_button, 0), \
+  bad_button.config(command = lambda:edit_list(bad_button, 0, _RED_COLOR), \
                 compound = TOP, bg = _RED_COLOR, width = 8, height = 2, \
                 font=("Arial Bold", 5), pady = 0, padx = 0, relief="raised")
 
 
   good_button = Button(info_frame)
   good_button.grid(column = 0, row = 1)
-  good_button.config(command = lambda:edit_list(good_button, 1), \
+  good_button.config(command = lambda:edit_list(good_button, 1, _GREEN_COLOR), \
                 compound = TOP, bg = _GREEN_COLOR, width = 8, height = 2, \
                 font=("Arial Bold", 5), pady = 0, padx = 0, relief="raised")
 
 
   well_button = Button(info_frame)
   well_button.grid(column = 0, row = 2)
-  well_button.config(command = lambda:edit_list(well_button, 2), \
+  well_button.config(command = lambda:edit_list(well_button, 2, _AZURE_COLOR), \
                 compound = TOP, bg = _AZURE_COLOR, width = 8, height = 2, \
                 font=("Arial Bold", 5), pady = 0, padx = 0, relief="raised")
 
