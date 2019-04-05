@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
+import pickle
 from Tkinter import *
 from csv import reader
 from PIL import ImageTk,Image
 
 _VERSION = "0.1"
-_HEROES_FILE = "database/Database.csv"
+_HEROES_FILE = "database/Database.pkl"
 
 _DEFAULT_COLOR = "#d9d9d9"
 _AZURE_COLOR = "#5795f9"
@@ -17,18 +18,11 @@ HEROES = {}
 
 BUTTONS = {}
 
-def load_table(filename, table):
-  with open(filename) as csv_file:
-    csv_reader = reader(csv_file, delimiter=';')
-    next(csv_file)
-
-    for line in csv_reader:
-        table[line[0]] = [line[1], line[2], line[3]]
-
 def load_heroes():
   global HEROES
 
-  load_table(_HEROES_FILE, HEROES)
+  with open(_HEROES_FILE, "rb") as handle:
+    HEROES = pickle.load(handle)
 
 def reset_all_buttons():
   global BUTTON

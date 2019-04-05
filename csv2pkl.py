@@ -5,7 +5,7 @@ import pickle
 
 _VERSION = "0.1"
 _HEROES_FILE = "database/Database.csv"
-_PICKLE_FILE = "database/Databse.pkl"
+_PICKLE_FILE = "database/Database.pkl"
 
 HEROES = {}
 
