@@ -13,8 +13,12 @@ _GREEN_COLOR = "#66ce54"
 _YELLOW_COLOR = "#f9ef31"
 _RED_COLOR = "#ff4f4f"
 
+_INDEX_COLORS = {
+  0 : _RED_COLOR,
+  1 : _GREEN_COLOR,
+  2 : _AZURE_COLOR}
+
 SELECTED_HERO = None
-ACTIVE_LIST = []
 ACTIVE_INDEX = None
 
 HEROES = {}
@@ -52,17 +56,13 @@ def highlight_related_heroes(hero_name, index, color):
          and value[0].cget("bg") == _DEFAULT_COLOR:
         value[0].config(bg = color)
 
-
-def button_click(hero_name):
+def highlight_all_relations(hero_name):
   global _RED_COLOR
   global _YELLOW_COLOR
   global _GREEN_COLOR
   global _AZURE_COLOR
   global BUTTONS
   global HEROES
-  global SELECTED_HERO
-
-  SELECTED_HERO = hero_name
 
   reset_all_buttons()
 
@@ -73,6 +73,29 @@ def button_click(hero_name):
   highlight_related_heroes(hero_name, 0, _RED_COLOR)
 
   highlight_related_heroes(hero_name, 1, _GREEN_COLOR)
+
+def edit_database(edited_hero):
+  global _INDEX_COLORS
+  global HEROES
+  global SELECTED_HERO
+  global ACTIVE_INDEX
+
+  if edited_hero in HEROES[SELECTED_HERO][ACTIVE_INDEX]:
+    HEROES[SELECTED_HERO][ACTIVE_INDEX] = HEROES[SELECTED_HERO][ACTIVE_INDEX].replace(', ' + edited_hero, '')
+  else:
+    HEROES[SELECTED_HERO][ACTIVE_INDEX] = HEROES[SELECTED_HERO][ACTIVE_INDEX] + ', ' + edited_hero
+
+def button_click(hero_name):
+  global SELECTED_HERO
+
+  if ACTIVE_INDEX == None:
+    SELECTED_HERO = hero_name
+
+    highlight_all_relations(hero_name)
+  else:
+    edit_database(hero_name)
+
+    highlight_related_heroes(SELECTED_HERO, ACTIVE_INDEX, _INDEX_COLORS[ACTIVE_INDEX])
 
 def add_label(window, letter, column, row):
   label = Label(window, text=letter, font=("Arial Bold", 12))
@@ -120,7 +143,8 @@ def add_buttons(window):
 
     column, row = get_next_cell(column, row)
 
-def edit_list(button, index, color):
+def edit_list(button, index):
+  global _INDEX_COLORS
   global SELECTED_HERO
   global ACTIVE_INDEX
 
@@ -140,7 +164,7 @@ def edit_list(button, index, color):
 
   BUTTONS[SELECTED_HERO][0].config(bg = _YELLOW_COLOR)
 
-  highlight_related_heroes(SELECTED_HERO, index, color)
+  highlight_related_heroes(SELECTED_HERO, index, _INDEX_COLORS[index])
 
 def make_window():
   global _RED_COLOR
@@ -163,21 +187,21 @@ def make_window():
 
   bad_button = Button(info_frame)
   bad_button.grid(column = 0, row = 0)
-  bad_button.config(command = lambda:edit_list(bad_button, 0, _RED_COLOR), \
+  bad_button.config(command = lambda:edit_list(bad_button, 0), \
                 compound = TOP, bg = _RED_COLOR, width = 8, height = 2, \
                 font=("Arial Bold", 5), pady = 0, padx = 0, relief="raised")
 
 
   good_button = Button(info_frame)
   good_button.grid(column = 0, row = 1)
-  good_button.config(command = lambda:edit_list(good_button, 1, _GREEN_COLOR), \
+  good_button.config(command = lambda:edit_list(good_button, 1), \
                 compound = TOP, bg = _GREEN_COLOR, width = 8, height = 2, \
                 font=("Arial Bold", 5), pady = 0, padx = 0, relief="raised")
 
 
   well_button = Button(info_frame)
   well_button.grid(column = 0, row = 2)
-  well_button.config(command = lambda:edit_list(well_button, 2, _AZURE_COLOR), \
+  well_button.config(command = lambda:edit_list(well_button, 2), \
                 compound = TOP, bg = _AZURE_COLOR, width = 8, height = 2, \
                 font=("Arial Bold", 5), pady = 0, padx = 0, relief="raised")
 
