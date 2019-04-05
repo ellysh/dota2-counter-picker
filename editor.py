@@ -43,7 +43,8 @@ def reset_all_buttons():
   for key, value in BUTTONS.iteritems():
     value[0].config(bg = _DEFAULT_COLOR)
 
-def highlight_related_heroes(hero_name, index, color):
+def highlight_related_heroes(hero_name, index):
+  global _INDEX_COLORS
   global _DEFAULT_COLOR
   global BUTTON
   global HEROES
@@ -54,13 +55,10 @@ def highlight_related_heroes(hero_name, index, color):
     if key != hero_name:
       if key in related_heroes \
          and value[0].cget("bg") == _DEFAULT_COLOR:
-        value[0].config(bg = color)
+        value[0].config(bg = _INDEX_COLORS[index])
 
 def highlight_all_relations(hero_name):
-  global _RED_COLOR
   global _YELLOW_COLOR
-  global _GREEN_COLOR
-  global _AZURE_COLOR
   global BUTTONS
   global HEROES
 
@@ -68,11 +66,11 @@ def highlight_all_relations(hero_name):
 
   BUTTONS[hero_name][0].config(bg = _YELLOW_COLOR)
 
-  highlight_related_heroes(hero_name, 2, _AZURE_COLOR)
+  highlight_related_heroes(hero_name, 2)
 
-  highlight_related_heroes(hero_name, 0, _RED_COLOR)
+  highlight_related_heroes(hero_name, 0)
 
-  highlight_related_heroes(hero_name, 1, _GREEN_COLOR)
+  highlight_related_heroes(hero_name, 1)
 
 def edit_database(edited_hero):
   global _INDEX_COLORS
@@ -95,7 +93,7 @@ def button_click(hero_name):
   else:
     edit_database(hero_name)
 
-    highlight_related_heroes(SELECTED_HERO, ACTIVE_INDEX, _INDEX_COLORS[ACTIVE_INDEX])
+    highlight_related_heroes(SELECTED_HERO, ACTIVE_INDEX)
 
 def add_label(window, letter, column, row):
   label = Label(window, text=letter, font=("Arial Bold", 12))
@@ -144,7 +142,6 @@ def add_buttons(window):
     column, row = get_next_cell(column, row)
 
 def edit_list(button, index):
-  global _INDEX_COLORS
   global SELECTED_HERO
   global ACTIVE_INDEX
 
@@ -164,7 +161,7 @@ def edit_list(button, index):
 
   BUTTONS[SELECTED_HERO][0].config(bg = _YELLOW_COLOR)
 
-  highlight_related_heroes(SELECTED_HERO, index, _INDEX_COLORS[index])
+  highlight_related_heroes(SELECTED_HERO, index)
 
 def make_window():
   global _RED_COLOR
