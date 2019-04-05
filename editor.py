@@ -147,7 +147,7 @@ def edit_list(button, index):
   global SELECTED_HERO
   global ACTIVE_INDEX
 
-  if button.config('relief')[-1] == 'sunken':
+  if button.config("relief")[-1] == "sunken":
       button.config(relief="raised")
   else:
       button.config(relief="sunken")
