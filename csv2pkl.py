@@ -15,7 +15,7 @@ def load_table(filename, table):
     next(csv_file)
 
     for line in csv_reader:
-        table[line[0]] = [line[1], line[2], line[3]]
+        table[line[0]] = [line[1].split(', '), line[2].split(', '), line[3].split(', ')]
 
 def load_heroes():
   global HEROES
