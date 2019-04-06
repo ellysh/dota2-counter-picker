@@ -60,7 +60,7 @@ def highlight_related_heroes(hero_name, index):
   global BUTTON
   global HEROES
 
-  related_heroes = HEROES[hero_name][index].split(', ')
+  related_heroes = HEROES[hero_name][index]
 
   for key, value in BUTTONS.iteritems():
     if key != hero_name:
@@ -87,12 +87,10 @@ def edit_database(edited_hero):
   global SELECTED_HERO
   global ACTIVE_INDEX
 
-  if ', ' + edited_hero in HEROES[SELECTED_HERO][ACTIVE_INDEX]:
-    HEROES[SELECTED_HERO][ACTIVE_INDEX] = HEROES[SELECTED_HERO][ACTIVE_INDEX].replace(', ' + edited_hero, '')
-  elif edited_hero in HEROES[SELECTED_HERO][ACTIVE_INDEX]:
-    HEROES[SELECTED_HERO][ACTIVE_INDEX] = HEROES[SELECTED_HERO][ACTIVE_INDEX].replace(edited_hero, '')
+  if edited_hero in HEROES[SELECTED_HERO][ACTIVE_INDEX]:
+    HEROES[SELECTED_HERO][ACTIVE_INDEX].remove(edited_hero)
   else:
-    HEROES[SELECTED_HERO][ACTIVE_INDEX] = HEROES[SELECTED_HERO][ACTIVE_INDEX] + ', ' + edited_hero
+    HEROES[SELECTED_HERO][ACTIVE_INDEX].append(edited_hero)
 
   write_heroes()
 

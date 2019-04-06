@@ -54,7 +54,7 @@ def highlight_related_heroes(hero_name, index):
   global BUTTON
   global HEROES
 
-  related_heroes = HEROES[hero_name][index].split(', ')
+  related_heroes = HEROES[hero_name][index]
 
   for key, value in BUTTONS.iteritems():
     if key != hero_name:
