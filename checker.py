@@ -24,15 +24,15 @@ def check_relations():
 
   for hero, lists in HEROES.iteritems():
       for bad in lists[0]:
-        if hero not in HEROES[bad][1]:
+        if not hero in HEROES[bad][1]:
           HEROES[bad][1].append(hero)
 
       for good in lists[1]:
-        if hero not in HEROES[good][0]:
+        if not hero in HEROES[good][0]:
           HEROES[good][0].append(hero)
 
       for well in lists[2]:
-        if hero not in HEROES[well][2]:
+        if not hero in HEROES[well][2]:
           HEROES[well][2].append(hero)
 
 def main():
