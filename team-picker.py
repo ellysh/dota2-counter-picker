@@ -35,10 +35,11 @@ def load_heroes():
     HEROES = pickle.load(handle)
 
 def reset_all_buttons():
-  global BUTTON
+  global BUTTONS
 
   for key, value in BUTTONS.iteritems():
     value[0].config(bg = _DEFAULT_COLOR)
+    value[0].config(text="0 0 0")
 
 def reset_highlight():
   global _YELLOW_COLOR
@@ -50,10 +51,17 @@ def reset_highlight():
   for hero in SELECTED_HEROES:
     BUTTONS[hero][0].config(bg = _YELLOW_COLOR)
 
+def increment_score(button, index):
+  scores = button.cget("text").split(' ')
+
+  scores[index] = str(int(scores[index]) + 1)
+
+  button.config(text=' '.join(scores))
+
 def highlight_related_heroes(index):
   global _INDEX_COLORS
   global _DEFAULT_COLOR
-  global BUTTON
+  global BUTTONS
   global HEROES
   global SELECTED_HEROES
 
@@ -61,10 +69,11 @@ def highlight_related_heroes(index):
     related_heroes = HEROES[hero][index]
 
     for key, value in BUTTONS.iteritems():
-      if key != hero:
-        if key in related_heroes \
-           and value[0].cget("bg") == _DEFAULT_COLOR:
-          value[0].config(bg = _INDEX_COLORS[index])
+      if not key in SELECTED_HEROES \
+         and key in related_heroes:
+        value[0].config(bg = _INDEX_COLORS[index])
+
+        increment_score(value[0], index)
 
 def highlight_all_relations():
   global _YELLOW_COLOR
