@@ -5,7 +5,7 @@ from Tkinter import *
 from csv import reader
 from PIL import ImageTk,Image
 
-_VERSION = "0.2"
+_VERSION = "0.3"
 _HEROES_FILE = "database/Database.pkl"
 
 _DEFAULT_COLOR = "#d9d9d9"
