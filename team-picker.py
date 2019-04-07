@@ -106,8 +106,8 @@ def add_button(window, button_click, hero, column, row):
                            "images/heroes/" + hero + ".png"))
 
   button.config(image = img, command = lambda:button_click(hero), \
-                compound = TOP, \
-                font=("Arial Bold", 5), pady = 0, padx = 0)
+                compound = TOP, text = "0 0 0", \
+                font=("Arial Bold", 7), pady = 0, padx = 0)
 
   return button, img
 
