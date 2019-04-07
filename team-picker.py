@@ -58,6 +58,18 @@ def increment_score(button, index):
 
   button.config(text=' '.join(scores))
 
+def is_score_matches_index(button, index):
+  scores = button.cget("text").split(' ')
+
+  if index == 0:
+    return int(scores[1]) < int(scores[0])
+  elif index == 1:
+    return int(scores[0]) < int(scores[1])
+  elif index == 2:
+    return scores[0] == '0' and scores[1] == '0' and 0 < int(scores[2])
+
+  return False
+
 def highlight_related_heroes(index):
   global _INDEX_COLORS
   global _DEFAULT_COLOR
@@ -71,9 +83,10 @@ def highlight_related_heroes(index):
     for key, value in BUTTONS.iteritems():
       if not key in SELECTED_HEROES \
          and key in related_heroes:
-        value[0].config(bg = _INDEX_COLORS[index])
-
         increment_score(value[0], index)
+
+      if is_score_matches_index(value[0], index):
+        value[0].config(bg = _INDEX_COLORS[index])
 
 def highlight_all_relations():
   global _YELLOW_COLOR
