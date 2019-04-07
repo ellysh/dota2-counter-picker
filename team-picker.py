@@ -21,10 +21,11 @@ _INDEX_COLORS = {
 
 INDEX_BUTTONS = {}
 
-SELECTED_HERO = None
+SELECTED_HEROES = []
 ACTIVE_INDEX = None
 
 HEROES = {}
+
 BUTTONS = {}
 
 def load_heroes():
@@ -42,51 +43,56 @@ def reset_all_buttons():
 def reset_highlight():
   global _YELLOW_COLOR
   global BUTTONS
-  global SELECTED_HERO
+  global SELECTED_HEROES
 
   reset_all_buttons()
 
-  BUTTONS[SELECTED_HERO][0].config(bg = _YELLOW_COLOR)
+  for hero in SELECTED_HEROES:
+    BUTTONS[hero][0].config(bg = _YELLOW_COLOR)
 
-def highlight_related_heroes(hero_name, index):
+def highlight_related_heroes(index):
   global _INDEX_COLORS
   global _DEFAULT_COLOR
   global BUTTON
   global HEROES
+  global SELECTED_HEROES
 
-  related_heroes = HEROES[hero_name][index]
+  for hero in SELECTED_HEROES:
+    related_heroes = HEROES[hero][index]
 
-  for key, value in BUTTONS.iteritems():
-    if key != hero_name:
-      if key in related_heroes \
-         and value[0].cget("bg") == _DEFAULT_COLOR:
-        value[0].config(bg = _INDEX_COLORS[index])
+    for key, value in BUTTONS.iteritems():
+      if key != hero:
+        if key in related_heroes \
+           and value[0].cget("bg") == _DEFAULT_COLOR:
+          value[0].config(bg = _INDEX_COLORS[index])
 
-def highlight_all_relations(hero_name):
+def highlight_all_relations():
   global _YELLOW_COLOR
   global BUTTONS
-  global HEROES
 
   reset_highlight()
 
-  highlight_related_heroes(hero_name, 2)
+  highlight_related_heroes(2)
 
-  highlight_related_heroes(hero_name, 0)
+  highlight_related_heroes(0)
 
-  highlight_related_heroes(hero_name, 1)
+  highlight_related_heroes(1)
 
 def button_click(hero_name):
-  global SELECTED_HERO
+  global SELECTED_HEROES
 
-  SELECTED_HERO = hero_name
+  if hero_name in SELECTED_HEROES:
+    SELECTED_HEROES.remove(hero_name)
+  else:
+    SELECTED_HEROES.append(hero_name)
 
   if ACTIVE_INDEX == None:
 
-    highlight_all_relations(hero_name)
+    highlight_all_relations()
   else:
     reset_highlight()
 
-    highlight_related_heroes(hero_name, ACTIVE_INDEX)
+    highlight_related_heroes(ACTIVE_INDEX)
 
 def add_label(window, letter, column, row):
   label = Label(window, text=letter, font=("Arial Bold", 12))
@@ -147,26 +153,35 @@ def toggle_index_button(index):
       INDEX_BUTTONS[index].config(relief="sunken")
 
 def enable_index(index):
-  global SELECTED_HERO
+  global SELECTED_HEROES
   global ACTIVE_INDEX
 
-  if not SELECTED_HERO:
+  if not SELECTED_HEROES:
     return
 
   toggle_index_button(index)
 
   if index == ACTIVE_INDEX:
     ACTIVE_INDEX = None
-    button_click(SELECTED_HERO)
+    for hero in SELECTED_HEROES:
+      button_click(hero)
     return
   else:
     ACTIVE_INDEX = index
 
   reset_all_buttons()
 
-  BUTTONS[SELECTED_HERO][0].config(bg = _YELLOW_COLOR)
+  for hero in SELECTED_HEROES:
+    BUTTONS[hero][0].config(bg = _YELLOW_COLOR)
 
-  highlight_related_heroes(SELECTED_HERO, index)
+  highlight_related_heroes(index)
+
+def reset_picked_heroes():
+  global BUTTONS
+
+  for key, value in BUTTONS.iteritems():
+    if BUTTONS[key][0].cget("bg") == _YELLOW_COLOR:
+      button_click(key)
 
 def make_window():
   global _RED_COLOR
@@ -219,6 +234,8 @@ def make_window():
   works_label = Label(info_frame, font=("Arial Bold", 12), \
                       text = "Works well with...")
   works_label.grid(column = 1, row = 2, sticky = W, padx = (20, 0))
+
+  window.bind('<Escape>', lambda event: reset_picked_heroes())
 
   window.mainloop()
 
