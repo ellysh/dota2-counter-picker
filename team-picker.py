@@ -185,16 +185,12 @@ def enable_index(index):
 
   if index == ACTIVE_INDEX:
     ACTIVE_INDEX = None
-    for hero in SELECTED_HEROES:
-      button_click(hero)
+    highlight_all_relations()
     return
   else:
     ACTIVE_INDEX = index
 
-  reset_all_buttons()
-
-  for hero in SELECTED_HEROES:
-    BUTTONS[hero][0].config(bg = _YELLOW_COLOR)
+  reset_highlight()
 
   highlight_related_heroes(index)
 
