@@ -73,6 +73,12 @@ You can follow the same algorithm for adding a hero to relations. Also, you shou
 
 The `picker.py` and `editor.py` scripts use the same database. It means that you will see all your changes in the `picker.py` script. The database with heroes is stored in the `database/Database.pkl` file.
 
+### Checker
+
+After editing the database, you want to check if it is consistent. The possible issue is you specify a hero A as "bad against..." a hero B but you forget to specify vice versa relation. This relation means that the hero B should be "good against..." the hero A.
+
+The `checker.py` script checks for such kind of mistakes in the database and fixes them. You can just launch the script and get the fixed database in the Pickle format.
+
 ## Contacts
 
 If you have any suggestions, bug reports or questions about usage of Dota 2 Counter Picker, please contact me via email petrsum@gmail.com.
