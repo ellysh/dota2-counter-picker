@@ -51,6 +51,26 @@ Start the `picker.py` script and click on the hero icon. The yellow color will h
 
 There are three buttons with red, green and blue color at the bottom of the window. You can press each button filtering the highlighted heroes. If you press the red button, only heroes which are strong against the chosen one will be highlighted. The green and blue buttons work the same for "good against..." and "works well with..." heroes.
 
+### Team Picker
+
+The `team-picker.py` script works similarly as `picker.py`. It shows you "bad against", "good against" and "works well with" relations between heroes.
+
+![Team Picker Script](images/readme/team-picker-window.png)
+
+The `team-picker.py` script allows you to pick several heroes at the same time. Then it shows relations of all picked heroes. Meaning of the colors, which highlight heroes, are the same as for the `picker.py` script. You can filter highlights with the red, green and blue buttons at the bottom of the window.
+
+There are three digits under each hero icon which estimate him. These are meaning of these digits:
+
+1. How many of the picked heroes (they are highlighted yellow) are bad against the hero on the corresponding icon?
+2. How many of the picked heroes are good against this one?
+3. How many of the picked heroes are works well with this one?
+
+Let's consider an example with the window on the screenshot above. The enemy team has picked two heroes: Mars and Monkey King. Both of them are bad against Batrider. Thus, Batrider gets scores "2 0 0". If you pick Batrider in the game, it will be a good choice in this case.
+
+At the same time, Monkey King is bad against Spectre but Mars is good against her. Thus, Spectre gets scores "1 1 0". She is still highlighted red because her bad and good scores are equal. She will get the green color in case of "1 2 0" scores for example. If you pick Spectre against Mars and Monkey King, probably you will have a tough game.
+
+You can cancel the current selection of heroes by the *Esc* button.
+
 ### Editor
 
 The initial version of the database with heroes was prepared based on the [Dota 2 Wiki](https://dota2.gamepedia.com/Category:Counters). The `editor.py` script allows you to edit this database.
@@ -71,7 +91,7 @@ These are steps to remove the hero from the "bad against..." relations:
 
 You can follow the same algorithm for adding a hero to relations. Also, you should follow the same steps for adding/removing a hero to the "good against..." and "works well with..." relations.
 
-The `picker.py` and `editor.py` scripts use the same database. It means that you will see all your changes in the `picker.py` script. The database with heroes is stored in the `database/Database.pkl` file.
+The `picker.py`, `team-picker.py` and `editor.py` scripts use the same database. It means that you will see all your changes in the `picker.py` script. The database with heroes is stored in the `database/Database.pkl` file.
 
 ### Checker
 
