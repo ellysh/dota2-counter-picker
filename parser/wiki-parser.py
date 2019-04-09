@@ -7,7 +7,8 @@ _VERSION = "0.1"
 _HTML_DIR = "html"
 
 _BAD_LABEL = "div style=\"margin-bottom:5px; box-shadow:0px 0px 2px 4px red;\""
-_GOOD_LABEL = "div style=\"margin-bottom:5px; box-shadow:0px 0px 2px 4px chartreuse;\""
+_GOOD_LABEL_1 = "div style=\"margin-bottom:5px; box-shadow:0px 0px 2px 4px chartreuse;\""
+_GOOD_LABEL_2 = "div style=\"margin-bottom:5px; box-shadow:0px 0px 2px 4px green;\""
 _SYNERGY_LABEL = "div style=\"margin-bottom:5px; box-shadow:0px 0px 2px 4px skyblue;\""
 
 _OUT_FILENAME = "../database/Database.csv"
@@ -15,6 +16,14 @@ _OUT_FILENAME = "../database/Database.csv"
 BAD_LIST = []
 GOOD_LIST = []
 SYNERGY_LIST = []
+
+def get_hero_name(line):
+  hero = line[line.find("title=")+7:line.find("><img alt")-1]
+
+  if "Nature" in hero:
+    return "Natures Prophet"
+
+  return hero
 
 def process_file(filename):
     global _BAD_LABEL
@@ -32,11 +41,11 @@ def process_file(filename):
     f = open(filename, "r")
     for line in f:
         if _BAD_LABEL in line:
-            BAD_LIST.append(line[line.find("title=")+7:line.find("><img alt")-1])
-        elif _GOOD_LABEL in line:
-            GOOD_LIST.append(line[line.find("title=")+7:line.find("><img alt")-1])
+            BAD_LIST.append(get_hero_name(line))
+        elif _GOOD_LABEL_1 in line or _GOOD_LABEL_2 in line:
+            GOOD_LIST.append(get_hero_name(line))
         elif _SYNERGY_LABEL in line:
-            SYNERGY_LIST.append(line[line.find("title=")+7:line.find("><img alt")-1])
+            SYNERGY_LIST.append(get_hero_name(line))
 
 def print_hero(hero, filename):
     global BAD_LIST
@@ -44,6 +53,11 @@ def print_hero(hero, filename):
     global SYNERGY_LIST
 
     f = open(filename, "a+")
+
+    # Fix the apostrophe sign in the hero name
+    if "Nature" in hero:
+      hero = "Natures Prophet"
+
     f.write(hero)
     f.write(";")
     f.write(", ".join(BAD_LIST))
@@ -59,7 +73,7 @@ def main():
 
     hero_files = os.listdir(_HTML_DIR)
 
-    for hero_name in hero_files:
+    for hero_name in sorted(hero_files):
         process_file(_HTML_DIR + "/" + hero_name)
 
         print_hero(hero_name, _OUT_FILENAME)

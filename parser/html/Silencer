@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <title>Silencer/Counters - Dota 2 Wiki</title>
 <script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
-<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Silencer/Counters","wgTitle":"Silencer/Counters","wgCurRevisionId":1757654,"wgRevisionId":1757654,"wgArticleId":247258,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Help wanted","Counters"],"wgBreakFrames":true,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Silencer/Counters","wgRelevantArticleId":247258,"wgRequestId":"e6a5bbce3aabe28dd8bde412","wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgCargoMapClusteringMinimum":80,"wgCargoMonthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"wgCargoMonthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgCargoWeekDays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"wgCargoWeekDaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgCollapsibleVectorEnabledModules":{"collapsiblenav":true,"experiments":true},"wgPreferredVariant":"en","wgMFExpandAllSectionsUserOption":true,"wgMFEnableFontChanger":true,"wgMFDisplayWikibaseDescriptions":{"search":false,"nearby":false,"watchlist":false,"tagline":false},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en","usePageImages":false,"usePageDescriptions":false},"wgWikiEditorEnabledModules":[],"wgVisualEditorToolbarScrollOffset":0,"wgVisualEditorUnsupportedEditParams":["undo","undoafter","veswitched"],"wgEditSubmitButtonLabelPublish":false});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"ready","user.tokens":"loading","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.siteGlobals.styles":"ready","skins.vector.styles.responsive":"ready","ext.social.styles":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready","mediawiki.skinning.interface":"ready","skins.vector.styles":"ready","skins.z.hydra.light.styles":"ready","skins.hydra.googlefont.styles":"ready","skins.hydra.netbar":"ready","skins.hydra.footer":"ready","skins.hydra.advertisements.styles":"ready"});mw.loader.implement("user.tokens@0h7ex46",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Silencer/Counters","wgTitle":"Silencer/Counters","wgCurRevisionId":1757654,"wgRevisionId":1757654,"wgArticleId":247258,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Help wanted","Counters"],"wgBreakFrames":true,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Silencer/Counters","wgRelevantArticleId":247258,"wgRequestId":"4d8f29fbcadfc7ff65db6ecf","wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgCargoMapClusteringMinimum":80,"wgCargoMonthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"wgCargoMonthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgCargoWeekDays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"wgCargoWeekDaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgCollapsibleVectorEnabledModules":{"collapsiblenav":true,"experiments":true},"wgPreferredVariant":"en","wgMFExpandAllSectionsUserOption":true,"wgMFEnableFontChanger":true,"wgMFDisplayWikibaseDescriptions":{"search":false,"nearby":false,"watchlist":false,"tagline":false},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en","usePageImages":false,"usePageDescriptions":false},"wgWikiEditorEnabledModules":[],"wgVisualEditorToolbarScrollOffset":0,"wgVisualEditorUnsupportedEditParams":["undo","undoafter","veswitched"],"wgEditSubmitButtonLabelPublish":false});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"ready","user.tokens":"loading","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.siteGlobals.styles":"ready","skins.vector.styles.responsive":"ready","ext.social.styles":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready","mediawiki.skinning.interface":"ready","skins.vector.styles":"ready","skins.z.hydra.light.styles":"ready","skins.hydra.googlefont.styles":"ready","skins.hydra.netbar":"ready","skins.hydra.footer":"ready","skins.hydra.advertisements.styles":"ready"});mw.loader.implement("user.tokens@0h7ex46",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });mw.loader.load(["ext.wfSoundManager2Button","ext.cargo.main","ext.scribunto.logs","site","mediawiki.page.startup","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.toc","mediawiki.searchSuggest","ext.hydraAuth.banners","ext.gadget.Countdown","ext.gadget.expandPartners","ext.gadget.ReferenceTooltips","ext.gadget.styleCargoTables","ext.collapsiblevector.collapsibleNav","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.siteGlobals.scripts","skins.vector.js","skins.hydra.advertisements.js","skins.hydra.footer.js","ext.social.scripts"]);});</script>
 <link rel="stylesheet" href="/load.php?debug=false&amp;lang=en&amp;modules=ext.siteGlobals.styles%7Cext.social.styles%7Cext.visualEditor.desktopArticleTarget.noscript%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cskins.hydra.advertisements.styles%7Cskins.hydra.footer%2Cnetbar%7Cskins.hydra.googlefont.styles%7Cskins.vector.styles%7Cskins.vector.styles.responsive%7Cskins.z.hydra.light.styles&amp;only=styles&amp;skin=hydra"/>
 <script async="" src="/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=hydra"></script>
@@ -371,11 +371,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- 
 NewPP limit report
-Cached time: 20190331010644
+Cached time: 20190408125630
 Cache expiry: 86400
 Dynamic content: false
-CPU time usage: 0.238 seconds
-Real time usage: 0.797 seconds
+CPU time usage: 0.242 seconds
+Real time usage: 0.787 seconds
 Preprocessor visited node count: 1960/1000000
 Preprocessor generated node count: 3205/1000000
 Post‐expand include size: 24681/2097152 bytes
@@ -384,24 +384,24 @@ Highest expansion depth: 6/40
 Expensive parser function count: 0/99
 Unstrip recursion depth: 0/20
 Unstrip post‐expand size: 120/5000000 bytes
-Lua time usage: 0.050/7.000 seconds
+Lua time usage: 0.040/7.000 seconds
 Lua virtual size: 8.67 MB/50 MB
 Lua estimated memory usage: 0 bytes
 ExtLoops count: 0/1000
 -->
 <!--
 Transclusion expansion time report (%,ms,calls,template)
-100.00%  441.107      1 -total
- 27.40%  120.871     19 Template:A
- 20.95%   92.407     21 Template:Hero_label
- 20.82%   91.820     12 Template:I
- 20.07%   88.542     12 Template:H
-  8.25%   36.377      1 Template:Tabs_Hero
-  1.13%    4.993      1 Template:Help_wanted
-  0.58%    2.566      1 Template:Ambox
+100.00%  434.651      1 -total
+ 27.24%  118.401     19 Template:A
+ 21.43%   93.136     21 Template:Hero_label
+ 21.14%   91.873     12 Template:I
+ 19.54%   84.945     12 Template:H
+  8.09%   35.164      1 Template:Tabs_Hero
+  1.17%    5.089      1 Template:Help_wanted
+  0.64%    2.779      1 Template:Ambox
 -->
 </div>
-<!-- Saved in parser cache with key dota2_gamepedia:pcache:idhash:247258-0!canonical and timestamp 20190331010643 and revision id 1757654
+<!-- Saved in parser cache with key dota2_gamepedia:pcache:idhash:247258-0!canonical and timestamp 20190408125630 and revision id 1757654
  -->
 </div>						<div class="printfooter">
 							Retrieved from "<a dir="ltr" href="https://dota2.gamepedia.com/index.php?title=Silencer/Counters&amp;oldid=1757654">https://dota2.gamepedia.com/index.php?title=Silencer/Counters&amp;oldid=1757654</a>"						</div>
@@ -577,7 +577,7 @@ This site is a part of Wikia, Inc. and is not affiliated with Valve.</li>
 		</div>
 		<div id="footer-push"></div>
 	</div>
-	<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.238","walltime":"0.797","ppvisitednodes":{"value":1960,"limit":1000000},"ppgeneratednodes":{"value":3205,"limit":1000000},"postexpandincludesize":{"value":24681,"limit":2097152},"templateargumentsize":{"value":2956,"limit":2097152},"expansiondepth":{"value":6,"limit":40},"expensivefunctioncount":{"value":0,"limit":99},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":120,"limit":5000000},"timingprofile":["100.00%  441.107      1 -total"," 27.40%  120.871     19 Template:A"," 20.95%   92.407     21 Template:Hero_label"," 20.82%   91.820     12 Template:I"," 20.07%   88.542     12 Template:H","  8.25%   36.377      1 Template:Tabs_Hero","  1.13%    4.993      1 Template:Help_wanted","  0.58%    2.566      1 Template:Ambox"]},"scribunto":{"limitreport-timeusage":{"value":"0.050","limit":"7.000"},"limitreport-virtmemusage":{"value":9093120,"limit":52428800},"limitreport-estmemusage":0,"limitreport-logs":"No cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\n"},"cachereport":{"timestamp":"20190331010644","ttl":86400,"transientcontent":false}}});});</script><footer id="curse-footer" role="complimentary" class="show-ads">
+	<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.242","walltime":"0.787","ppvisitednodes":{"value":1960,"limit":1000000},"ppgeneratednodes":{"value":3205,"limit":1000000},"postexpandincludesize":{"value":24681,"limit":2097152},"templateargumentsize":{"value":2956,"limit":2097152},"expansiondepth":{"value":6,"limit":40},"expensivefunctioncount":{"value":0,"limit":99},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":120,"limit":5000000},"timingprofile":["100.00%  434.651      1 -total"," 27.24%  118.401     19 Template:A"," 21.43%   93.136     21 Template:Hero_label"," 21.14%   91.873     12 Template:I"," 19.54%   84.945     12 Template:H","  8.09%   35.164      1 Template:Tabs_Hero","  1.17%    5.089      1 Template:Help_wanted","  0.64%    2.779      1 Template:Ambox"]},"scribunto":{"limitreport-timeusage":{"value":"0.040","limit":"7.000"},"limitreport-virtmemusage":{"value":9093120,"limit":52428800},"limitreport-estmemusage":0,"limitreport-logs":"No cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\nNo cached version found. Storing.\n"},"cachereport":{"timestamp":"20190408125630","ttl":86400,"transientcontent":false}}});});</script><footer id="curse-footer" role="complimentary" class="show-ads">
 	<div class="footer-flex">
 		<div class="footer-box">
 			<a href="http://www.gamepedia.com" class="curse">Gamepedia powered by Curse</a>
@@ -651,6 +651,6 @@ _comscore.push({ c1: "2", c2: "6035118" });
 			<script type="text/javascript">
 				window.genreCategory = 'MOBA';
 				window.wikiTags = ["action","defense of the ancients","esports","free-to-play","free to play","ftp","game:dota 2","linux","mac","pc","rts","source","steam","valve"];
-			</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":66});});</script>
+			</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":92});});</script>
 	</body>
 </html>
