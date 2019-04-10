@@ -19,6 +19,12 @@ def save_heroes():
   with open(_HEROES_FILE, "wb") as handle:
     pickle.dump(HEROES, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
+def check_conflicts(hero, bad_list, good_list):
+  for relation in bad_list:
+    if relation in good_list:
+      print("%s has %s in both \"bad agains\" and \"good against\" lists" \
+            % (hero, relation))
+
 def check_relations():
   global HEROES
 
@@ -34,6 +40,8 @@ def check_relations():
       for well in lists[2]:
         if not hero in HEROES[well][2]:
           HEROES[well][2].append(hero)
+
+      check_conflicts(hero, lists[0], lists[1])
 
 def main():
   load_heroes()
