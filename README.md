@@ -91,7 +91,7 @@ These are steps to remove the hero from the "bad against..." relations:
 
 You can follow the same algorithm for adding a hero to relations. Also, you should follow the same steps for adding/removing a hero to the "good against..." and "works well with..." relations.
 
-The `picker.py`, `team-picker.py` and `editor.py` scripts use the same database. It means that you will see all your changes in all these scripts. The database with heroes is stored in the `database/Database.pkl` file.
+The `picker.py`, `team-picker.py`, `checker.py` and `editor.py` scripts use the same database. It means that you will see all your changes in all these scripts. The database with heroes is stored in the `database/Database.pkl` file.
 
 ### Checker
 
@@ -115,6 +115,14 @@ It means that Naga Siren and Huskar has conflicting relations and counters each 
 3. Launch the `checker.py` script again.
 
 Now the report about conflicts should be empty.
+
+### Import and Export
+
+The `picker.py`, `team-picker.py`, `checker.py` and `editor.py` scripts use the database in the Pickle format (the `database/Database.pkl` file). This is a binary format, which is not convenient for reviewing in a text editor and comparing with other database files. 
+
+The `pkl2csv.py` script allows you to convert the database from the Pickle format to the CSV. If you launch the script, you get the `database/Database.csv` file. You can open this file in any text editor or MS/Libre Office application.
+
+When you are done with reviewing the database in the CSV format, you should launch the `csv2pkl.py` script. It converts the database back to the Pickle format and stores it in the `database/Database.pkl` file.
 
 ## Contacts
 
