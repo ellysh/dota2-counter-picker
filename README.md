@@ -91,13 +91,30 @@ These are steps to remove the hero from the "bad against..." relations:
 
 You can follow the same algorithm for adding a hero to relations. Also, you should follow the same steps for adding/removing a hero to the "good against..." and "works well with..." relations.
 
-The `picker.py`, `team-picker.py` and `editor.py` scripts use the same database. It means that you will see all your changes in the `picker.py` script. The database with heroes is stored in the `database/Database.pkl` file.
+The `picker.py`, `team-picker.py` and `editor.py` scripts use the same database. It means that you will see all your changes in all these scripts. The database with heroes is stored in the `database/Database.pkl` file.
 
 ### Checker
 
 After editing the database, you want to check if it is consistent. The possible issue is you specify a hero A as "bad against..." a hero B but you forget to specify vice versa relation. This relation means that the hero B should be "good against..." the hero A.
 
 The `checker.py` script checks for such kind of mistakes in the database and fixes them. You can just launch the script and get the fixed database in the Pickle format.
+
+Another possible issue is conflicting relations. Let's assume that hero A is good against hero B according to the database. At the same time, the hero B is good again A by accidental mistake. If you launch the `checker.py` script in console (or Command Prompt on Windows), you see the report about such mistakes.
+
+This is a possible report:
+```
+Naga Siren has Huskar in both "bad against" and "good against" lists
+Huskar has Naga Siren in both "bad against" and "good against" lists
+```
+It means that Naga Siren and Huskar has conflicting relations and counters each other. You should fix it by the `editor.py` script in three steps:
+
+1. Remove Naga Siren from the "good against..." list of Huskar.
+
+2. Remove Huskar from the "bad against..." list of Naga Siren.
+
+3. Launch the `checker.py` script again.
+
+Now the report about conflicts should be empty.
 
 ## Contacts
 
