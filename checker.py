@@ -2,7 +2,7 @@
 
 import pickle
 
-_VERSION = "0.3"
+_VERSION = "0.4"
 _HEROES_FILE = "database/Database.pkl"
 
 HEROES = {}

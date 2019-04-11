@@ -1,3 +1,8 @@
+* version 0.4
+  - Add the team-picker.py script for counter picking the whole enemy team.
+  - Add feature to the checker.py script for printing conflicting relations.
+  - Update the database to the consistent state.
+
 * version 0.3
   - Switch the database format to Pickle.
   - Add converter scripts csv2pkl.py and pkl2csv.py for import/export features.
