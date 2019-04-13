@@ -15,19 +15,27 @@ def load_heroes():
   with open(_HEROES_FILE, "rb") as handle:
     HEROES = pickle.load(handle)
 
+def print_header(f):
+  f.write("Hero;Bad against...;Good against...;Works well with...\n")
+
+def print_heroes(f):
+  for hero in sorted(HEROES.keys()):
+    f.write(hero)
+    f.write(";")
+    f.write(", ".join(HEROES[hero][0]))
+    f.write(";")
+    f.write(", ".join(HEROES[hero][1]))
+    f.write(";")
+    f.write(", ".join(HEROES[hero][2]))
+    f.write("\n")
+
 def save_csv():
   global HEROES
 
   with open(_CSV_FILE, "wb") as f:
-    for hero in sorted(HEROES.keys()):
-      f.write(hero)
-      f.write(";")
-      f.write(", ".join(HEROES[hero][0]))
-      f.write(";")
-      f.write(", ".join(HEROES[hero][1]))
-      f.write(";")
-      f.write(", ".join(HEROES[hero][2]))
-      f.write("\n")
+    print_header(f)
+
+    print_heroes(f)
 
 def main():
   load_heroes()

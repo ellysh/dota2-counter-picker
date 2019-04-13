@@ -13,6 +13,9 @@ def load_table(filename, table):
   with open(filename) as csv_file:
     csv_reader = reader(csv_file, delimiter=';')
 
+    # Skip the columns headers
+    csv_reader.next()
+
     for line in csv_reader:
         table[line[0]] = [line[1].split(', '), line[2].split(', '), line[3].split(', ')]
 
