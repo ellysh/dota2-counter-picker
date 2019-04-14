@@ -8,9 +8,10 @@ _HEROES_FILE = "database/Database.pkl"
 _ADD_COMMAND = "-a"
 _DELETE_COMMAND = "-d"
 
-_USAGE = """Usage: checker.py [-a|-d]
+_USAGE = """Usage: checker.py [-a|-d|-h]
     -a - fix the inconsistent relations by adding missing heroes in the lists
     -d - fix the inconsistent relations by removing extra heroes from the lists
+    -h - print help
 
 Example:
     checker.py -a
