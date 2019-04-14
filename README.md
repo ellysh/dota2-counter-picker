@@ -142,6 +142,19 @@ The `pkl2csv.py` script allows you to convert the database from the Pickle forma
 
 When you are done with reviewing the database in the CSV format, you should launch the `csv2pkl.py` script. It converts the database back to the Pickle format and stores it in the `database/Database.pkl` file.
 
+## Update
+
+These are the recommended steps for updating Dota 2 Counter Picker:
+
+1. Download the archive with the latest version of the scripts and extract it to the new folder:<br/>
+https://github.com/ellysh/dota2-counter-picker/archive/master.zip
+
+2. Go to the old folder of the picker and export your database to the CSV format (with the `pkl2csv.py` script).
+
+3. Copy both `database/Database.pkl` and `database/Database.csv` files to the folder with the new version of the picker (into the `database` sub-folder).
+
+4. Remove the folder with the old version of the scripts.
+
 ## Contacts
 
 If you have any suggestions, bug reports or questions about usage of Dota 2 Counter Picker, please contact me via email petrsum@gmail.com.
