@@ -1,3 +1,7 @@
+* version 0.5
+  - Rework the checker.py script. Now it checks the database for consistency by default and does not change anything. There are several options to fix broken heroes relations.
+  - Add columns headers to the database in the CSV format.
+
 * version 0.4
   - Add the team-picker.py script for counter picking the whole enemy team.
   - Add feature to the checker.py script for printing conflicting relations.
