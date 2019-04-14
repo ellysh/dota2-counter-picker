@@ -95,13 +95,29 @@ The `picker.py`, `team-picker.py`, `checker.py` and `editor.py` scripts use the 
 
 ### Checker
 
-After editing the database, you want to check if it is consistent. The possible issue is you specify a hero A as "bad against..." a hero B but you forget to specify vice versa relation. This relation means that the hero B should be "good against..." the hero A.
+After editing the database, you want to check if it is consistent. The possible issue is you specify a hero A as "bad against..." the hero B but you forget to specify vice versa relation. This relation means that the hero B should be "good against..." the hero A. The `checker.py` script checks for such kind of mistakes in the database. If you launch the script in the console (or Command Prompt on Windows), you see the report about such mistakes.
 
-The `checker.py` script checks for such kind of mistakes in the database and fixes them. You can just launch the script and get the fixed database in the Pickle format.
+This is an example output of the script:
+```
+Tiny is "good against" Naga Siren but Naga Siren is not "bad against" Tiny
+```
+By default, the script does not fix these issues but it has two option to do it:
 
-Another possible issue is conflicting relations. Let's assume that hero A is good against hero B according to the database. At the same time, the hero B is good again A by accidental mistake. If you launch the `checker.py` script in console (or Command Prompt on Windows), you see the report about such mistakes.
+1. Use the `-a` command line option to add missing heroes to the required list:
+```
+checker.py -a
+```
+Let's see on our example output above. After the command with `-a`, Tiny will be added to the Naga Siren's "bad against" list.
 
-This is a possible report:
+2. Use the `-d` command line option to remove extra heroes from the required list:
+```
+checker.py -d
+```
+After the command with `-d`, Naga Siren will be removed from the Tiny's "good against" list.
+
+Another possible issue is conflicting relations. Let's assume that hero A is good against hero B according to the database. At the same time, the hero B is good again A by accidental mistake.
+
+This is a possible output of these mistakes:
 ```
 Naga Siren has Huskar in both "bad against" and "good against" lists
 Huskar has Naga Siren in both "bad against" and "good against" lists
@@ -115,6 +131,8 @@ It means that Naga Siren and Huskar has conflicting relations and counters each 
 3. Launch the `checker.py` script again.
 
 Now the report about conflicts should be empty.
+
+The `checker.py` script works with the database in the Pickle format (the `database/Database.pkl` file).
 
 ### Import and Export
 

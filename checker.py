@@ -57,12 +57,12 @@ def check_missing_extra_relations(hero):
 
   for bad in HEROES[hero][0]:
     if not hero in HEROES[bad][1]:
-      print("%s is \"bad agains\" %s but %s is not \"good against \" %s" % (hero, bad, bad, hero))
+      print("%s is \"bad against\" %s but %s is not \"good against \" %s" % (hero, bad, bad, hero))
       perform_command(hero, HEROES[bad][1])
 
   for good in HEROES[hero][1]:
     if not hero in HEROES[good][0]:
-      print("%s is \"good agains\" %s but %s is not \"bad against \" %s" % (hero, good, good, hero))
+      print("%s is \"good against\" %s but %s is not \"bad against \" %s" % (hero, good, good, hero))
       perform_command(hero, HEROES[good][0])
 
   for well in HEROES[hero][2]:
