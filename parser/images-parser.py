@@ -1,8 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os
 
-_VERSION = "0.1"
+_VERSION = "0.6"
 
 _IMAGES_DIR = "images"
 
