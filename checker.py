@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 import pickle
@@ -73,7 +73,7 @@ def check_missing_extra_relations(hero):
 def check_relations():
   global HEROES
 
-  for hero, lists in HEROES.iteritems():
+  for hero, lists in HEROES.items():
     check_conflicts(hero, lists[0], lists[1])
 
     check_missing_extra_relations(hero)
