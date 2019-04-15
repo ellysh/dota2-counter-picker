@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 
+import sys
+
+if sys.platform == "win32":
+  from Tkinter import *
+else:
+  from tkinter import *
+
 import pickle
-from tkinter import *
 from csv import reader
 from PIL import ImageTk,Image
 
