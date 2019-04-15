@@ -3,7 +3,7 @@
 from csv import reader
 import pickle
 
-_VERSION = "0.5"
+_VERSION = "0.6"
 _HEROES_FILE = "database/Database.csv"
 _PICKLE_FILE = "database/Database.pkl"
 

@@ -1,3 +1,6 @@
+* version 0.6
+  - Adapt all script to Python 3.
+
 * version 0.5
   - Rework the checker.py script. Now it checks the database for consistency by default and does not change anything. There are several options to fix broken heroes relations.
   - Add columns headers to the database in the CSV format.

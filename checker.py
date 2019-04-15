@@ -3,7 +3,7 @@
 import sys
 import pickle
 
-_VERSION = "0.5"
+_VERSION = "0.6"
 _HEROES_FILE = "database/Database.pkl"
 _ADD_COMMAND = "-a"
 _DELETE_COMMAND = "-d"
