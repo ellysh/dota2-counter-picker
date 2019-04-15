@@ -1,7 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import pickle
-from Tkinter import *
+from tkinter import *
 from csv import reader
 from PIL import ImageTk,Image
 
@@ -36,7 +36,7 @@ def load_heroes():
 def reset_all_buttons():
   global BUTTON
 
-  for key, value in BUTTONS.iteritems():
+  for key, value in BUTTONS.items():
     value[0].config(bg = _DEFAULT_COLOR)
 
 def reset_highlight():
@@ -56,7 +56,7 @@ def highlight_related_heroes(hero_name, index):
 
   related_heroes = HEROES[hero_name][index]
 
-  for key, value in BUTTONS.iteritems():
+  for key, value in BUTTONS.items():
     if key != hero_name:
       if key in related_heroes \
          and value[0].cget("bg") == _DEFAULT_COLOR:
