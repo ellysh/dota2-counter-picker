@@ -1,7 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import pickle
-from Tkinter import *
+from tkinter import *
 from csv import reader
 from PIL import ImageTk,Image
 
@@ -37,7 +37,7 @@ def load_heroes():
 def reset_all_buttons():
   global BUTTONS
 
-  for key, value in BUTTONS.iteritems():
+  for key, value in BUTTONS.items():
     value[0].config(bg = _DEFAULT_COLOR)
     value[0].config(text="0 0 0")
 
@@ -80,7 +80,7 @@ def highlight_related_heroes(index):
   for hero in SELECTED_HEROES:
     related_heroes = HEROES[hero][index]
 
-    for key, value in BUTTONS.iteritems():
+    for key, value in BUTTONS.items():
       if not key in SELECTED_HEROES \
          and key in related_heroes:
         increment_score(value[0], index)
@@ -197,7 +197,7 @@ def enable_index(index):
 def reset_picked_heroes():
   global BUTTONS
 
-  for key, value in BUTTONS.iteritems():
+  for key, value in BUTTONS.items():
     if BUTTONS[key][0].cget("bg") == _YELLOW_COLOR:
       button_click(key)
 
