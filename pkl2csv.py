@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from csv import reader
 import pickle
@@ -32,7 +32,7 @@ def print_heroes(f):
 def save_csv():
   global HEROES
 
-  with open(_CSV_FILE, "wb") as f:
+  with open(_CSV_FILE, "w") as f:
     print_header(f)
 
     print_heroes(f)
