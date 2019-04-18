@@ -6,7 +6,7 @@ A current development state is available in the [`CHANGELOG.md`](CHANGELOG.md) f
 
 ## Installation
 
-You need two Python 2.7, Tkinter and pillow modules to launch the Dota 2 Counter Picker.
+You need two Python 3, Tkinter and pillow modules to launch the Dota 2 Counter Picker.
 
 ### Windows
 
