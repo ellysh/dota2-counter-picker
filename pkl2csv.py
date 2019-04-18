@@ -18,7 +18,7 @@ def save_csv(file, heroes):
             f.write(entry.format(
                 name=hero,
                 bad_against=', '.join(heroes[hero][0]),
-                good_agaisnt=', '.join(heroes[hero][1]),
+                good_against=', '.join(heroes[hero][1]),
                 works_well=', '.join(heroes[hero][2])
             ))
 
