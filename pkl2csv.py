@@ -3,43 +3,32 @@
 import pickle
 
 _VERSION = "0.6"
-_CSV_FILE = "database/Database.csv"
-_HEROES_FILE = "database/Database.pkl"
 
-HEROES = {}
 
-def load_heroes():
-  global HEROES
+def load_heroes(file):
+    with open(file, "rb") as f: return pickle.load(f)
 
-  with open(_HEROES_FILE, "rb") as handle:
-    HEROES = pickle.load(handle)
 
-def print_header(f):
-  f.write("Hero;Bad against...;Good against...;Works well with...\n")
+def save_csv(file, heroes):
+    with open(file, "w") as f:
+        header = "Hero;Bad against...;Good against...;Works well with...\n"
+        entry = "{name};{bad_against};{good_against};{works_well}\n"
+        f.write(header)
+        for hero in sorted(heroes.keys()):
+            f.write(entry.format(
+                name=hero,
+                bad_against=heroes[hero][0],
+                good_agaisnt=heroes[hero][1],
+                works_well=heroes[hero][2]
+            ))
 
-def print_heroes(f):
-  for hero in sorted(HEROES.keys()):
-    f.write(hero)
-    f.write(";")
-    f.write(", ".join(HEROES[hero][0]))
-    f.write(";")
-    f.write(", ".join(HEROES[hero][1]))
-    f.write(";")
-    f.write(", ".join(HEROES[hero][2]))
-    f.write("\n")
 
-def save_csv():
-  global HEROES
+def picle2csv(heroes_file, csv_file):
+    heroes = load_heroes(heroes_file)
+    save_csv(csv_file, heroes)
 
-  with open(_CSV_FILE, "w") as f:
-    print_header(f)
-
-    print_heroes(f)
-
-def main():
-  load_heroes()
-
-  save_csv()
 
 if __name__ == '__main__':
-  main()
+    csv_file = "database/Database.csv"
+    heroes_file = "database/Database.pkl"
+    picle2csv(heroes_file, csv_file)
