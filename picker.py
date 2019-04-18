@@ -2,7 +2,7 @@
 
 import sys
 
-if sys.platform == "win32":
+if sys.platform == "win32" or sys.platform == "darwin":
   from Tkinter import *
 else:
   from tkinter import *
