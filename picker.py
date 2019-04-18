@@ -8,7 +8,6 @@ else:
   from tkinter import *
 
 import pickle
-from csv import reader
 from PIL import ImageTk,Image
 
 _VERSION = "0.6"

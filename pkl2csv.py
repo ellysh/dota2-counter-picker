@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from csv import reader
 import pickle
 
 _VERSION = "0.6"
