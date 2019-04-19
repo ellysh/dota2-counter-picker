@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
-
 import pickle
-
-_VERSION = "0.6"
+from pkg_resources import resource_filename
 
 
 def load_heroes(file):
@@ -29,6 +27,6 @@ def picle2csv(heroes_file, csv_file):
 
 
 if __name__ == '__main__':
-    csv_file = "database/Database.csv"
-    heroes_file = "database/Database.pkl"
+    csv_file = resource_filename('dota2picker' 'database/Database.csv')
+    heroes_file = resource_filename('dota2picker', 'database/Database.pkl')
     picle2csv(heroes_file, csv_file)

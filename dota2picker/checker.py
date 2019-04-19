@@ -2,9 +2,9 @@
 
 import sys
 import pickle
+from pkg_resources import resource_filename
 
-_VERSION = "0.6"
-_HEROES_FILE = "database/Database.pkl"
+_HEROES_FILE = resource_filename('dota2picker', 'database/Database.pkl')
 _ADD_COMMAND = "-a"
 _DELETE_COMMAND = "-d"
 

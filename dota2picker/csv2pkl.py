@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
-from csv import reader
 import pickle
+from csv import reader
+from pkg_resources import resource_filename
 
-_VERSION = "0.6"
-_HEROES_FILE = "database/Database.csv"
-_PICKLE_FILE = "database/Database.pkl"
+_HEROES_FILE = resource_filename('dota2picker', 'database/Database.csv')
+_PICKLE_FILE = resource_filename('dota2picker', 'database/Database.pkl')
 
 HEROES = {}
 

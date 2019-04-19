@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
-
 import sys
+import pickle
+from PIL import ImageTk,Image
+from pkg_resources import resource_filename
+from .version import VERSION
 
 if sys.platform == "win32" or sys.platform == "darwin":
   from Tkinter import *
 else:
   from tkinter import *
 
-import pickle
-from PIL import ImageTk,Image
-
-_VERSION = "0.6"
-_HEROES_FILE = "database/Database.pkl"
+_HEROES_FILE = resource_filename('dota2picker', 'database/Database.pkl')
 
 _DEFAULT_COLOR = "#d9d9d9"
 _AZURE_COLOR = "#5795f9"
@@ -198,11 +197,10 @@ def make_window():
   global _GREEN_COLOR
   global _AZURE_COLOR
   global INDEX_BUTTONS
-  global VERSION
 
   window = Tk()
 
-  window.title("Dota 2 Editor " + _VERSION)
+  window.title("Dota 2 Editor " + VERSION)
 
   buttons_frame = Frame(height = 2, bd = 1, relief = SUNKEN)
   buttons_frame.pack(fill = BOTH, expand = True)

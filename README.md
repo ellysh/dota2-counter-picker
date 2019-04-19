@@ -48,7 +48,7 @@ https://github.com/ellysh/dota2-counter-picker/archive/master.zip
 
 The `picker.py` script shows you which heroes are bad or good against the chosen one. Also, the script shows which heroes can be combined well.
 
-![Picker Script](images/readme/picker-window.png)
+![Picker Script](dota2picker/images/readme/picker-window.png)
 
 Start the `picker.py` script and click on the hero icon. The yellow color will highlight it. The red color highlights all heroes who can easily beat the selected one. We can say that the selected hero is "bad against" them. The green color means that the chosen hero is "good against" the selected ones. The blue color shows heroes which can be combined effectively with the selected hero in one team. It means that he "works well with" them.
 
@@ -58,7 +58,7 @@ There are three buttons with red, green and blue color at the bottom of the wind
 
 The `team-picker.py` script works similarly as `picker.py`. It shows you "bad against", "good against" and "works well with" relations between heroes.
 
-![Team Picker Script](images/readme/team-picker-window.png)
+![Team Picker Script](dota2picker/images/readme/team-picker-window.png)
 
 The `team-picker.py` script allows you to pick several heroes at the same time. Then it shows relations of all picked heroes. Meaning of the colors, which highlight heroes, are the same as for the `picker.py` script. You can filter highlights with the red, green and blue buttons at the bottom of the window.
 
@@ -78,7 +78,7 @@ You can cancel the current selection of heroes by the *Esc* button.
 
 The initial version of the database with heroes was prepared based on the [Dota 2 Wiki](https://dota2.gamepedia.com/Category:Counters). The `editor.py` script allows you to edit this database.
 
-![Editor Script](images/readme/editor-window.png)
+![Editor Script](dota2picker/images/readme/editor-window.png)
 
 Start the `editor.py` script. It looks like the `picker.py` script. Meaning of all colors is the same.
 
