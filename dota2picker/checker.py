@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
-
 import sys
-from pkg_resources import resource_filename
 from .persistence import Pickle
 
-_HEROES_FILE = resource_filename('dota2picker', 'database/Database.pkl')
 _ADD_COMMAND = "-a"
 _DELETE_COMMAND = "-d"
 
