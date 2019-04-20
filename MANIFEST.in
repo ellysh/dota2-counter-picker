@@ -1,0 +1,3 @@
+include dota2picker/database/**
+include dota2picker/images/**/*
+include dota2picker/parser/**
