@@ -5,7 +5,6 @@ from pkg_resources import resource_filename
 
 
 class Pickle(object):
-
     HEROES_DB = resource_filename('dota2picker', 'database/Database.pkl')
 
     @staticmethod
@@ -18,7 +17,6 @@ class Pickle(object):
 
 
 class Csv(object):
-
     HEROES_DB = resource_filename('dota2picker', 'database/Database.csv')
 
     @staticmethod
@@ -55,5 +53,3 @@ def csv2pickle(csv_file, pickle_file):
 def pickle2csv(pickl_file, csv_file):
     heroes = Pickle.load(pickl_file)
     Csv.save(heroes, csv_file)
-
-
