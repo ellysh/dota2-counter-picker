@@ -22,7 +22,7 @@ if __name__ == '__main__':
             'console_scripts': [
                 'dota2picker-checker=dota2picker.checker:main',
                 'dota2picker-csv2pkl=dota2picker.csv2pkl:eluac',
-                'dota2picker-editor-job=dota2picker.editor:main',
+                'dota2picker-editor=dota2picker.editor:main',
                 'dota2picker-pk2csv=dota2picker.pkl2csv:main',
                 'dota2picker-picker=dota2picker.picker:main',
                 'dota2picker-team-picker=dota2picker.team_picker:main',
