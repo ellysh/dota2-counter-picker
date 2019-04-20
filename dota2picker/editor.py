@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 import sys
-import pickle
 from PIL import ImageTk,Image
 from pkg_resources import resource_filename
 from .version import VERSION
+from .persistence import Pickle
 
 if sys.platform == "win32" or sys.platform == "darwin":
   from Tkinter import *
@@ -33,15 +33,11 @@ BUTTONS = {}
 
 def load_heroes():
   global HEROES
-
-  with open(_HEROES_FILE, "rb") as handle:
-    HEROES = pickle.load(handle)
+  HEROES = Pickle.load(Pickle.HEROES_DB)
 
 def write_heroes():
   global HEROES
-
-  with open(_HEROES_FILE, "wb") as handle:
-    pickle.dump(HEROES, handle, protocol=pickle.HIGHEST_PROTOCOL)
+  Pickle.save(HEROES, Pickle.HEROES_DB)
 
 def reset_all_buttons():
   global BUTTON

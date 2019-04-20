@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 import sys
-import pickle
 from pkg_resources import resource_filename
 from .version import VERSION
+from .persistence import Pickle
+
 if sys.platform == "win32":
   from Tkinter import *
 else:
@@ -34,9 +35,8 @@ BUTTONS = {}
 
 def load_heroes():
   global HEROES
+  HEROES = Pickle.load(Pickle.HEROES_DB)
 
-  with open(_HEROES_FILE, "rb") as handle:
-    HEROES = pickle.load(handle)
 
 def reset_all_buttons():
   global BUTTONS

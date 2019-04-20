@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 import sys
-import pickle
 from pkg_resources import resource_filename
+from .persistence import Pickle
 
 _HEROES_FILE = resource_filename('dota2picker', 'database/Database.pkl')
 _ADD_COMMAND = "-a"
@@ -26,15 +26,11 @@ def print_usage(usage):
 
 def load_heroes():
   global HEROES
-
-  with open(_HEROES_FILE, "rb") as handle:
-    HEROES = pickle.load(handle)
+  HEROES = Pickle.load(Pickle.HEROES_DB)
 
 def save_heroes():
   global HEROES
-
-  with open(_HEROES_FILE, "wb") as handle:
-    pickle.dump(HEROES, handle, protocol=pickle.HIGHEST_PROTOCOL)
+  Pickle.save(HEROES, Pickle.HEROES_DB)
 
 def check_conflicts(hero, bad_list, good_list):
   for relation in bad_list:
