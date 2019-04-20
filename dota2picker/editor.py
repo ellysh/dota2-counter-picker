@@ -5,7 +5,7 @@ from pkg_resources import resource_filename
 from .version import VERSION
 from .persistence import Pickle
 
-if sys.platform == "win32" or sys.platform == "darwin":
+if sys.platform == "win32":
     from Tkinter import *
 else:
     from tkinter import *
