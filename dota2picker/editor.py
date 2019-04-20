@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 import sys
 import pickle
-from PIL import ImageTk,Image
 from pkg_resources import resource_filename
 from .version import VERSION
-
 if sys.platform == "win32" or sys.platform == "darwin":
   from Tkinter import *
 else:
   from tkinter import *
+from PIL import ImageTk,Image
 
 _HEROES_FILE = resource_filename('dota2picker', 'database/Database.pkl')
 
@@ -120,8 +119,8 @@ def add_button(window, button_click, hero, column, row):
   button = Button(window)
   button.grid(column = column, row = row)
 
-  img = ImageTk.PhotoImage(Image.open( \
-                           "images/heroes/" + hero + ".png"))
+  resource = resource_filename('dota2picker', 'images/heroes/{}.png'.format(hero))
+  img = ImageTk.PhotoImage(Image.open(resource))
 
   button.config(image = img, command = lambda:button_click(hero), \
                 compound = TOP, \
