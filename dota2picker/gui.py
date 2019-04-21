@@ -21,3 +21,11 @@ INDEX_COLORS = {
 def load_heroes():
     return Pickle.load(Pickle.HEROES_DB)
 
+
+def get_next_cell(column, row):
+    column += 1
+    if 10 < column:
+        column = 0
+        row += 1
+    return column, row
+

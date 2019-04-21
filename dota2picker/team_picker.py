@@ -2,7 +2,7 @@
 import sys
 from pkg_resources import resource_filename
 from .version import VERSION
-from .gui import INDEX_COLORS, load_heroes, Color
+from .gui import INDEX_COLORS, load_heroes, Color, get_next_cell
 
 if sys.platform == "win32":
     from Tkinter import *
@@ -17,6 +17,7 @@ ACTIVE_INDEX = None
 
 HEROES = {}
 BUTTONS = {}
+
 
 def reset_all_buttons():
     global BUTTONS
@@ -112,14 +113,6 @@ def add_button(window, button_click, hero, column, row):
                   font=("Arial Bold", 7), pady=0, padx=0)
 
     return button, img
-
-
-def get_next_cell(column, row):
-    column += 1
-    if 10 < column:
-        column = 0
-        row += 1
-    return column, row
 
 
 def add_buttons(window):
