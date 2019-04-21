@@ -55,19 +55,19 @@ def check_missing_extra_relations(hero):
     global HEROES
 
     for bad in HEROES[hero][0]:
-        if not hero in HEROES[bad][1]:
+        if hero not in HEROES[bad][1]:
             template = '{} is "bad against" {} but {} is not "good against" {}'
             print(template.format(hero, bad, bad, hero))
             perform_command(hero, HEROES[bad][1])
 
     for good in HEROES[hero][1]:
-        if not hero in HEROES[good][0]:
+        if hero not in HEROES[good][0]:
             template = '{} is "good against" {} but {} is not "bad against" {}'
             print(template.format(hero, good, good, hero))
             perform_command(hero, HEROES[good][0])
 
     for well in HEROES[hero][2]:
-        if not hero in HEROES[well][2]:
+        if hero not in HEROES[well][2]:
             template = '{} is "works well with" {} but not vice versa'
             print(template.format(hero, good))
             perform_command(hero, HEROES[well][2])
