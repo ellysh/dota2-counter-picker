@@ -64,8 +64,7 @@ def highlight_related_heroes(index):
         related_heroes = HEROES[hero][index]
 
         for key, value in BUTTONS.items():
-            if not key in SELECTED_HEROES \
-                    and key in related_heroes:
+            if not key in SELECTED_HEROES and key in related_heroes:
                 increment_score(value[0], index)
 
             if is_score_matches_index(value[0], index):
@@ -108,8 +107,8 @@ def add_button(window, button_click, hero, column, row):
     resource = resource_filename('dota2picker', 'images/heroes/{}.png'.format(hero))
     img = ImageTk.PhotoImage(Image.open(resource))
 
-    button.config(image=img, command=lambda: button_click(hero), \
-                  compound=TOP, text="0 0 0", \
+    button.config(image=img, command=lambda: button_click(hero),
+                  compound=TOP, text="0 0 0",
                   font=("Arial Bold", 7), pady=0, padx=0)
 
     return button, img
@@ -207,16 +206,13 @@ def make_window():
                             compound=TOP, bg=Color.Azure.value, width=8, height=2,
                             font=("Arial Bold", 5), pady=0, padx=0, relief="raised")
 
-    bad_label = Label(info_frame, font=("Arial Bold", 12),
-                      text="Bad against...")
+    bad_label = Label(info_frame, font=("Arial Bold", 12), text="Bad against...")
     bad_label.grid(column=1, row=0, sticky=W, padx=(20, 0))
 
-    good_label = Label(info_frame, font=("Arial Bold", 12),
-                       text="Good against...")
+    good_label = Label(info_frame, font=("Arial Bold", 12), text="Good against...")
     good_label.grid(column=1, row=1, sticky=W, padx=(20, 0))
 
-    works_label = Label(info_frame, font=("Arial Bold", 12),
-                        text="Works well with...")
+    works_label = Label(info_frame, font=("Arial Bold", 12), text="Works well with...")
     works_label.grid(column=1, row=2, sticky=W, padx=(20, 0))
 
     window.bind('<Escape>', lambda event: reset_picked_heroes())
