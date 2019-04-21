@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+from enum import Enum
+
+
+class Color(Enum):
+    Default = "#d9d9d9"
+    Azure = "#5795f9"
+    Green = "#66ce54"
+    Yellow = "#f9ef31"
+    Red = "#ff4f4f"
+
+
+INDEX_COLORS = {
+    0: Color.Red.value,
+    1: Color.Green.value,
+    2: Color.Azure.value
+}

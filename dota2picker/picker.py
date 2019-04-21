@@ -3,6 +3,7 @@ import sys
 from pkg_resources import resource_filename
 from .version import VERSION
 from .persistence import Pickle
+from .gui import INDEX_COLORS
 
 if sys.platform == "win32":
     from Tkinter import *
@@ -10,18 +11,6 @@ else:
     from tkinter import *
 from PIL import ImageTk, Image
 
-_HEROES_FILE = resource_filename('dota2picker', 'database/Database.pkl')
-
-_DEFAULT_COLOR = "#d9d9d9"
-_AZURE_COLOR = "#5795f9"
-_GREEN_COLOR = "#66ce54"
-_YELLOW_COLOR = "#f9ef31"
-_RED_COLOR = "#ff4f4f"
-
-_INDEX_COLORS = {
-    0: _RED_COLOR,
-    1: _GREEN_COLOR,
-    2: _AZURE_COLOR}
 
 INDEX_BUTTONS = {}
 
@@ -53,7 +42,6 @@ def reset_highlight():
 
 
 def highlight_related_heroes(hero_name, index):
-    global _INDEX_COLORS
     global _DEFAULT_COLOR
     global BUTTON
     global HEROES
@@ -63,7 +51,7 @@ def highlight_related_heroes(hero_name, index):
         if key != hero_name:
             if key in related_heroes \
                     and value[0].cget("bg") == _DEFAULT_COLOR:
-                value[0].config(bg=_INDEX_COLORS[index])
+                value[0].config(bg=INDEX_COLORS[index])
 
 
 def highlight_all_relations(hero_name):
