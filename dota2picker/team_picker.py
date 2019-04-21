@@ -191,31 +191,31 @@ def make_window():
 
     INDEX_BUTTONS[0] = Button(info_frame)
     INDEX_BUTTONS[0].grid(column=0, row=0)
-    INDEX_BUTTONS[0].config(command=lambda: enable_index(0), \
-                            compound=TOP, bg=Color.Red.value, width=8, height=2, \
+    INDEX_BUTTONS[0].config(command=lambda: enable_index(0),
+                            compound=TOP, bg=Color.Red.value, width=8, height=2,
                             font=("Arial Bold", 5), pady=0, padx=0, relief="raised")
 
     INDEX_BUTTONS[1] = Button(info_frame)
     INDEX_BUTTONS[1].grid(column=0, row=1)
-    INDEX_BUTTONS[1].config(command=lambda: enable_index(1), \
-                            compound=TOP, bg=Color.Green.value, width=8, height=2, \
+    INDEX_BUTTONS[1].config(command=lambda: enable_index(1),
+                            compound=TOP, bg=Color.Green.value, width=8, height=2,
                             font=("Arial Bold", 5), pady=0, padx=0, relief="raised")
 
     INDEX_BUTTONS[2] = Button(info_frame)
     INDEX_BUTTONS[2].grid(column=0, row=2)
-    INDEX_BUTTONS[2].config(command=lambda: enable_index(2), \
-                            compound=TOP, bg=Color.Azure.value, width=8, height=2, \
+    INDEX_BUTTONS[2].config(command=lambda: enable_index(2),
+                            compound=TOP, bg=Color.Azure.value, width=8, height=2,
                             font=("Arial Bold", 5), pady=0, padx=0, relief="raised")
 
-    bad_label = Label(info_frame, font=("Arial Bold", 12), \
+    bad_label = Label(info_frame, font=("Arial Bold", 12),
                       text="Bad against...")
     bad_label.grid(column=1, row=0, sticky=W, padx=(20, 0))
 
-    good_label = Label(info_frame, font=("Arial Bold", 12), \
+    good_label = Label(info_frame, font=("Arial Bold", 12),
                        text="Good against...")
     good_label.grid(column=1, row=1, sticky=W, padx=(20, 0))
 
-    works_label = Label(info_frame, font=("Arial Bold", 12), \
+    works_label = Label(info_frame, font=("Arial Bold", 12),
                         text="Works well with...")
     works_label.grid(column=1, row=2, sticky=W, padx=(20, 0))
 

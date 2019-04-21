@@ -36,8 +36,7 @@ def save_heroes():
 def check_conflicts(hero, bad_list, good_list):
     for relation in bad_list:
         if relation in good_list:
-            print("%s has %s in both \"bad against\" and \"good against\" lists" \
-                  % (hero, relation))
+            print("%s has %s in both \"bad against\" and \"good against\" lists" % (hero, relation))
 
 
 def perform_command(hero, change_list):

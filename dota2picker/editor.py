@@ -44,8 +44,7 @@ def highlight_related_heroes(hero_name, index):
     related_heroes = HEROES[hero_name][index]
     for key, value in BUTTONS.items():
         if key != hero_name:
-            if key in related_heroes \
-                    and value[0].cget("bg") == Color.Default.value:
+            if key in related_heroes and value[0].cget("bg") == Color.Default.value:
                 value[0].config(bg=INDEX_COLORS[index])
 
 
@@ -95,8 +94,8 @@ def add_button(window, button_click, hero, column, row):
     img = ImageTk.PhotoImage(Image.open(resource))
 
 
-    button.config(image=img, command=lambda: button_click(hero), \
-                  compound=TOP, \
+    button.config(image=img, command=lambda: button_click(hero),
+                  compound=TOP,
                   font=("Arial Bold", 5), pady=0, padx=0)
 
     return button, img
@@ -115,8 +114,7 @@ def add_buttons(window):
 
             column, row = get_next_cell(column, row)
 
-        BUTTONS[key] = add_button(window, button_click, key, \
-                                  column, row)
+        BUTTONS[key] = add_button(window, button_click, key, column, row)
         column, row = get_next_cell(column, row)
 
 
@@ -171,31 +169,31 @@ def make_window():
 
     INDEX_BUTTONS[0] = Button(info_frame)
     INDEX_BUTTONS[0].grid(column=0, row=0)
-    INDEX_BUTTONS[0].config(command=lambda: edit_list(0), \
-                            compound=TOP, bg=Color.Red.value, width=8, height=2, \
+    INDEX_BUTTONS[0].config(command=lambda: edit_list(0),
+                            compound=TOP, bg=Color.Red.value, width=8, height=2,
                             font=("Arial Bold", 5), pady=0, padx=0, relief="raised")
 
     INDEX_BUTTONS[1] = Button(info_frame)
     INDEX_BUTTONS[1].grid(column=0, row=1)
-    INDEX_BUTTONS[1].config(command=lambda: edit_list(1), \
-                            compound=TOP, bg=Color.Green.value, width=8, height=2, \
+    INDEX_BUTTONS[1].config(command=lambda: edit_list(1),
+                            compound=TOP, bg=Color.Green.value, width=8, height=2,
                             font=("Arial Bold", 5), pady=0, padx=0, relief="raised")
 
     INDEX_BUTTONS[2] = Button(info_frame)
     INDEX_BUTTONS[2].grid(column=0, row=2)
-    INDEX_BUTTONS[2].config(command=lambda: edit_list(2), \
-                            compound=TOP, bg= Color.Azure.value, width=8, height=2, \
+    INDEX_BUTTONS[2].config(command=lambda: edit_list(2),
+                            compound=TOP, bg= Color.Azure.value, width=8, height=2,
                             font=("Arial Bold", 5), pady=0, padx=0, relief="raised")
 
-    bad_label = Label(info_frame, font=("Arial Bold", 12), \
+    bad_label = Label(info_frame, font=("Arial Bold", 12),
                       text="Bad against...")
     bad_label.grid(column=1, row=0, sticky=W, padx=(20, 0))
 
-    good_label = Label(info_frame, font=("Arial Bold", 12), \
+    good_label = Label(info_frame, font=("Arial Bold", 12),
                        text="Good against...")
     good_label.grid(column=1, row=1, sticky=W, padx=(20, 0))
 
-    works_label = Label(info_frame, font=("Arial Bold", 12), \
+    works_label = Label(info_frame, font=("Arial Bold", 12),
                         text="Works well with...")
     works_label.grid(column=1, row=2, sticky=W, padx=(20, 0))
 
