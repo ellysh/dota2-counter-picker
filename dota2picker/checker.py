@@ -36,7 +36,8 @@ def save_heroes():
 def check_conflicts(hero, bad_list, good_list):
     for relation in bad_list:
         if relation in good_list:
-            print("%s has %s in both \"bad against\" and \"good against\" lists" % (hero, relation))
+            template = '{} has {} in both "bad against" and "good against" lists'
+            print(template.format(hero, relation))
 
 
 def perform_command(hero, change_list):
@@ -55,17 +56,20 @@ def check_missing_extra_relations(hero):
 
     for bad in HEROES[hero][0]:
         if not hero in HEROES[bad][1]:
-            print("%s is \"bad against\" %s but %s is not \"good against \" %s" % (hero, bad, bad, hero))
+            template = '{} is "bad against" {} but {} is not "good against" {}'
+            print(template.format(hero, bad, bad, hero))
             perform_command(hero, HEROES[bad][1])
 
     for good in HEROES[hero][1]:
         if not hero in HEROES[good][0]:
-            print("%s is \"good against\" %s but %s is not \"bad against \" %s" % (hero, good, good, hero))
+            template = '{} is "good against" {} but {} is not "bad against" {}'
+            print(template.format(hero, good, good, hero))
             perform_command(hero, HEROES[good][0])
 
     for well in HEROES[hero][2]:
         if not hero in HEROES[well][2]:
-            print("%s is \"works well with\" %s but not vice versa" % (hero, good))
+            template = '{} is "works well with" {} but not vice versa'
+            print(template.format(hero, good))
             perform_command(hero, HEROES[well][2])
 
 
