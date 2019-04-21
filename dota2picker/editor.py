@@ -4,7 +4,6 @@ from pkg_resources import resource_filename
 from .version import VERSION
 from .persistence import Pickle
 from .gui import INDEX_COLORS, load_heroes, Color, get_next_cell
-
 if sys.platform == "win32":
     from Tkinter import *
 else:
@@ -94,6 +93,7 @@ def add_button(window, button_click, hero, column, row):
 
     resource = resource_filename('dota2picker', 'images/heroes/{}.png'.format(hero))
     img = ImageTk.PhotoImage(Image.open(resource))
+
 
     button.config(image=img, command=lambda: button_click(hero), \
                   compound=TOP, \
