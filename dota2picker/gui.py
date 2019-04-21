@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from enum import Enum
+from .persistence import Pickle
 
 
 class Color(Enum):
@@ -15,3 +16,8 @@ INDEX_COLORS = {
     1: Color.Green.value,
     2: Color.Azure.value
 }
+
+
+def load_heroes():
+    return Pickle.load(Pickle.HEROES_DB)
+

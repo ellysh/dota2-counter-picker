@@ -3,7 +3,7 @@ import sys
 from pkg_resources import resource_filename
 from .version import VERSION
 from .persistence import Pickle
-from .gui import INDEX_COLORS
+from .gui import INDEX_COLORS, load_heroes, Color
 
 if sys.platform == "win32":
     from Tkinter import *
@@ -20,11 +20,6 @@ HEROES = {}
 BUTTONS = {}
 
 
-def load_heroes():
-    global HEROES
-    HEROES = Pickle.load(Pickle.HEROES_DB)
-
-
 def write_heroes():
     global HEROES
     Pickle.save(HEROES, Pickle.HEROES_DB)
@@ -34,31 +29,28 @@ def reset_all_buttons():
     global BUTTON
 
     for key, value in BUTTONS.items():
-        value[0].config(bg=_DEFAULT_COLOR)
+        value[0].config(bg=Color.Default.value)
 
 
 def reset_highlight():
-    global _YELLOW_COLOR
     global BUTTONS
     global SELECTED_HERO
     reset_all_buttons()
-    BUTTONS[SELECTED_HERO][0].config(bg=_YELLOW_COLOR)
+    BUTTONS[SELECTED_HERO][0].config(bg=Color.Yellow.value)
 
 
 def highlight_related_heroes(hero_name, index):
-    global _DEFAULT_COLOR
     global BUTTON
     global HEROES
     related_heroes = HEROES[hero_name][index]
     for key, value in BUTTONS.items():
         if key != hero_name:
             if key in related_heroes \
-                    and value[0].cget("bg") == _DEFAULT_COLOR:
+                    and value[0].cget("bg") == Color.Default.value:
                 value[0].config(bg=INDEX_COLORS[index])
 
 
 def highlight_all_relations(hero_name):
-    global _YELLOW_COLOR
     global BUTTONS
     global HEROES
     reset_highlight()
@@ -166,14 +158,11 @@ def edit_list(index):
         ACTIVE_INDEX = index
 
     reset_all_buttons()
-    BUTTONS[SELECTED_HERO][0].config(bg=_YELLOW_COLOR)
+    BUTTONS[SELECTED_HERO][0].config(bg=Color.Yellow.value)
     highlight_related_heroes(SELECTED_HERO, index)
 
 
 def make_window():
-    global _RED_COLOR
-    global _GREEN_COLOR
-    global _AZURE_COLOR
     global INDEX_BUTTONS
 
     window = Tk()
@@ -191,19 +180,19 @@ def make_window():
     INDEX_BUTTONS[0] = Button(info_frame)
     INDEX_BUTTONS[0].grid(column=0, row=0)
     INDEX_BUTTONS[0].config(command=lambda: edit_list(0), \
-                            compound=TOP, bg=_RED_COLOR, width=8, height=2, \
+                            compound=TOP, bg=Color.Red.value, width=8, height=2, \
                             font=("Arial Bold", 5), pady=0, padx=0, relief="raised")
 
     INDEX_BUTTONS[1] = Button(info_frame)
     INDEX_BUTTONS[1].grid(column=0, row=1)
     INDEX_BUTTONS[1].config(command=lambda: edit_list(1), \
-                            compound=TOP, bg=_GREEN_COLOR, width=8, height=2, \
+                            compound=TOP, bg=Color.Green.value, width=8, height=2, \
                             font=("Arial Bold", 5), pady=0, padx=0, relief="raised")
 
     INDEX_BUTTONS[2] = Button(info_frame)
     INDEX_BUTTONS[2].grid(column=0, row=2)
     INDEX_BUTTONS[2].config(command=lambda: edit_list(2), \
-                            compound=TOP, bg=_AZURE_COLOR, width=8, height=2, \
+                            compound=TOP, bg= Color.Azure.value, width=8, height=2, \
                             font=("Arial Bold", 5), pady=0, padx=0, relief="raised")
 
     bad_label = Label(info_frame, font=("Arial Bold", 12), \
@@ -222,7 +211,8 @@ def make_window():
 
 
 def main():
-    load_heroes()
+    global HEROES
+    HEROES = load_heroes()
     make_window()
 
 
