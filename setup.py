@@ -13,7 +13,7 @@ if __name__ == '__main__':
         packages=find_packages(),
         include_package_data=True,
         install_requires=['setuptools', 'setuptools-git', 'Pillow'],
-        license='gpl-3.0'
+        license='gpl-3.0',
         url='https://github.com/ellysh/dota2-counter-picker',
         author='Ilya Shpigor',
         author_email='petrsum@gmail.com',
@@ -22,12 +22,12 @@ if __name__ == '__main__':
         keywords=['dota2', 'counter-pick'],
         entry_points={
             'console_scripts': [
-                'dota2picker-checker=dota2picker.checker:main',
-                'dota2picker-csv2pkl=dota2picker.csv2pkl:eluac',
-                'dota2picker-editor=dota2picker.editor:main',
-                'dota2picker-pk2csv=dota2picker.pkl2csv:main',
-                'dota2picker-picker=dota2picker.picker:main',
-                'dota2picker-team-picker=dota2picker.team_picker:main',
+                'd2-checker=dota2picker.checker:main',
+                'd2-csv2pkl=dota2picker.csv2pkl:eluac',
+                'd2-editor=dota2picker.editor:main',
+                'd2-pk2csv=dota2picker.pkl2csv:main',
+                'd2-picker=dota2picker.picker:main',
+                'd2-team-picker=dota2picker.team_picker:main',
             ],
         },
         classifiers=[
