@@ -1,3 +1,7 @@
+* version 0.7
+  - Build the package for PyPi.
+  - Code refactoring.
+
 * version 0.6
   - Adapt all script to Python 3.
 
