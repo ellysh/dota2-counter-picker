@@ -25,10 +25,16 @@ https://www.python.org/downloads/release/python-373/
 
 There is an alternative way to install dota2picker from github repository:
 
-1. Download the archive with the dota2picker and extract it:<br/>
+1. Install the `pillow` module:<br/>
+`pip install pillow`
+
+2. Install the `setuptools` module:<br/>
+`pip install setuptools`
+
+3. Download the archive with the dota2picker and extract it:<br/>
 https://github.com/ellysh/dota2-counter-picker/archive/master.zip
 
-2. Change directory to the `dota2-counter-picker` and launch the command:
+4. Change directory to the `dota2-counter-picker` and launch the command:<br/>
 `python setup.py install --user`
 
 It will be installed to the user directory.
@@ -46,15 +52,21 @@ These are steps to install dota2picker on Linux:
 3. Install the pip package manager:<br/>
 `sudo apt-get install python3-pip`
 
-4. Install Dota 2 Counter Picker:
+4. Install Dota 2 Counter Picker:<br/>
 `pip3 install dota2picker`
 
 There is an alternative way to install dota2picker from github repository:
 
-1. Download the archive with the dota2picker and extract it:<br/>
+1. Install the `pillow` module:<br/>
+`sudo apt-get install python3-pil.imagetk`
+
+2. Install the `setuptools` module:<br/>
+`pip install setuptools`
+
+3. Download the archive with the dota2picker and extract it:<br/>
 https://github.com/ellysh/dota2-counter-picker/archive/master.zip
 
-2. Change directory to the `dota2-counter-picker` and launch the command:
+4. Change directory to the `dota2-counter-picker` and launch the command:<br/>
 `python setup.py install --user`
 
 It will be installed to the user directory.
