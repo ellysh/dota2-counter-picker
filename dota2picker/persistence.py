@@ -1,7 +1,23 @@
 #!/usr/bin/env python3
 import pickle
+import os
+import ntpath
 from csv import reader
 from pkg_resources import resource_filename
+from shutil import copyfile
+
+USER_PATH = os.path.expanduser("~") + "/.local/share/dota2picker/"
+
+def get_filename(resource):
+    return USER_PATH + ntpath.basename(resource)
+
+def copy_resource_file(resource):
+    path = get_filename(resource)
+
+    if os.path.exists(path): return
+
+    os.mkdir(USER_PATH)
+    copyfile(resource, path)
 
 
 class Pickle(object):
@@ -9,11 +25,15 @@ class Pickle(object):
 
     @staticmethod
     def load(file):
-        with open(file, "rb") as f: return pickle.load(f)
+        copy_resource_file(file)
+
+        with open(get_filename(file), "rb") as f: return pickle.load(f)
 
     @staticmethod
     def save(heroes, file):
-        with open(file, "wb") as f: pickle.dump(heroes, f, protocol=pickle.HIGHEST_PROTOCOL)
+        copy_resource_file(file)
+
+        with open(get_filename(file), "wb") as f: pickle.dump(heroes, f, protocol=pickle.HIGHEST_PROTOCOL)
 
 
 class Csv(object):
@@ -21,8 +41,10 @@ class Csv(object):
 
     @staticmethod
     def load(file):
+        copy_resource_file(file)
+
         heroes = {}
-        with open(file) as csv_file:
+        with open(get_filename(file)) as csv_file:
             csv_reader = reader(csv_file, delimiter=';')
             # Skip the columns headers
             next(csv_reader)
@@ -32,7 +54,9 @@ class Csv(object):
 
     @staticmethod
     def save(heroes, file):
-        with open(file, "w") as f:
+        copy_resource_file(file)
+
+        with open(get_filename(file), "w") as f:
             header = "Hero;Bad against...;Good against...;Works well with...\n"
             entry = "{name};{bad_against};{good_against};{works_well}\n"
             f.write(header)
