@@ -1,46 +1,63 @@
 # Dota 2 Counter Picker 0.6 version
 
-Dota 2 Counter Picker is a utility for choosing the best combinations of heroes and counter picks.
+This the utility for choosing the best combinations of heroes and counter picks.
 
 A current development state is available in the [`CHANGELOG.md`](CHANGELOG.md) file.
 
 ## Installation
 
-You need two Python 3, Tkinter and pillow modules to launch the Dota 2 Counter Picker.
+You need two Python 3, Tkinter and Pillow modules to launch the Dota 2 Counter Picker.
 
 ### Windows
 
-These are steps to install Python 3 and required modules on Windows:
+There are steps to install dota2picker on Windows:
 
-1. Download the archive with Dota 2 Counter Picker and extract it:<br/>
-https://github.com/ellysh/dota2-counter-picker/archive/master.zip
-
-2. Download the Python 3 distribution:<br/>
+1. Download the Python 3 distribution:<br/>
 https://www.python.org/downloads/release/python-373/
 
-3. Install Python 3.
+2. Install Python 3.
 
-4. Install the pip utility with the following command in the command line:<br/>
+3. Install the pip utility with the following command in the command line:<br/>
 `python get-pip.py`
 
-5. Install the `pillow` module:<br/>
-`pip install pillow`
+4. Install Dota 2 Counter Picker:<br/>
+`pip install dota2picker`
+
+There is an alternative way to install dota2picker from github repository:
+
+1. Download the archive with the dota2picker and extract it:<br/>
+https://github.com/ellysh/dota2-counter-picker/archive/master.zip
+
+2. Change directory to the `dota2-counter-picker` and launch the command:
+`python setup.py install --user`
+
+It will be installed to the user directory.
 
 ### Ubuntu
 
-These are steps to install Python 3 and required modules on Linux:
+These are steps to install dota2picker on Linux:
 
-1. Download the archive with Dota 2 Counter Picker and extract it:<br/>
-https://github.com/ellysh/dota2-counter-picker/archive/master.zip
-
-2. Install the Python 3:<br/>
+1. Install the Python 3:<br/>
 `sudo apt-get install python3`
 
-3. Install the Tkinter module:<br/>
+2. Install the Tkinter module:<br/>
 `sudo apt-get install python3-tk`
 
-4. Install the `pillow` module:<br/>
-`sudo apt-get install python3-pil.imagetk`
+3. Install the pip package manager:<br/>
+`sudo apt-get install python3-pip`
+
+4. Install Dota 2 Counter Picker:
+`pip3 install dota2picker`
+
+There is an alternative way to install dota2picker from github repository:
+
+1. Download the archive with the dota2picker and extract it:<br/>
+https://github.com/ellysh/dota2-counter-picker/archive/master.zip
+
+2. Change directory to the `dota2-counter-picker` and launch the command:
+`python setup.py install --user`
+
+It will be installed to the user directory.
 
 ## Usage
 
