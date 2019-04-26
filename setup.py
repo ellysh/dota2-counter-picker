@@ -13,10 +13,12 @@ if __name__ == '__main__':
         packages=find_packages(),
         include_package_data=True,
         install_requires=['setuptools', 'setuptools-git', 'Pillow'],
+        license='gpl-3.0'
         url='https://github.com/ellysh/dota2-counter-picker',
         author='Ilya Shpigor',
         author_email='petrsum@gmail.com',
         description='Various tools for counter picking heros in dota2',
+        download_url = 'https://github.com/ellysh/dota2-counter-picker/archive/master.zip',
         keywords=['dota2', 'counter-pick'],
         entry_points={
             'console_scripts': [
