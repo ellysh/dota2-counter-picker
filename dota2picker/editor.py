@@ -4,10 +4,7 @@ from pkg_resources import resource_filename
 from .version import VERSION
 from .persistence import Pickle
 from .gui import INDEX_COLORS, load_heroes, Color, get_next_cell
-if sys.platform == "win32":
-    from Tkinter import *
-else:
-    from tkinter import *
+from tkinter import *
 from PIL import ImageTk, Image
 
 INDEX_BUTTONS = {}
