@@ -25,7 +25,7 @@ if __name__ == '__main__':
         entry_points={
             'console_scripts': [
                 'd2-checker=dota2picker.checker:main',
-                'd2-csv2pkl=dota2picker.csv2pkl:eluac',
+                'd2-csv2pkl=dota2picker.csv2pkl:main',
                 'd2-editor=dota2picker.editor:main',
                 'd2-pk2csv=dota2picker.pkl2csv:main',
                 'd2-picker=dota2picker.picker:main',

@@ -31,8 +31,6 @@ class Pickle(object):
 
     @staticmethod
     def save(heroes, file):
-        copy_resource_file(file)
-
         with open(get_filename(file), "wb") as f: pickle.dump(heroes, f, protocol=pickle.HIGHEST_PROTOCOL)
 
 
@@ -54,8 +52,6 @@ class Csv(object):
 
     @staticmethod
     def save(heroes, file):
-        copy_resource_file(file)
-
         with open(get_filename(file), "w") as f:
             header = "Hero;Bad against...;Good against...;Works well with...\n"
             entry = "{name};{bad_against};{good_against};{works_well}\n"
