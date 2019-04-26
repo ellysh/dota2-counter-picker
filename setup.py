@@ -18,7 +18,7 @@ if __name__ == '__main__':
         author='Ilya Shpigor',
         author_email='petrsum@gmail.com',
         description='Set of utilities for choosing the best combinations of heroes and counter picks in Dota 2.',
-        long_description='Set of utilities for choosing the best combinations of heroes and counter picks in Dota 2.',
+        long_description=open("README.md").read()
         long_description_content_type='text/markdown',
         download_url = 'https://github.com/ellysh/dota2-counter-picker/archive/master.zip',
         keywords=['dota2', 'counter-pick'],
