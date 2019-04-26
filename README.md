@@ -17,19 +17,16 @@ https://www.python.org/downloads/release/python-373/
 
 2. Install Python 3.
 
-3. Install the pip utility with the following command in the command line:<br/>
-`python get-pip.py`
-
-4. Install Dota 2 Counter Picker:<br/>
-`pip install dota2picker`
+3. Install Dota 2 Counter Picker:<br/>
+`python -m pip install --user dota2picker`
 
 There is an alternative way to install dota2picker from github repository:
 
 1. Install the `pillow` module:<br/>
-`pip install pillow`
+`python -m pip install pillow`
 
 2. Install the `setuptools` module:<br/>
-`pip install setuptools`
+`python -m pip install setuptools`
 
 3. Download the archive with the dota2picker and extract it:<br/>
 https://github.com/ellysh/dota2-counter-picker/archive/master.zip
@@ -37,7 +34,8 @@ https://github.com/ellysh/dota2-counter-picker/archive/master.zip
 4. Change directory to the `dota2-counter-picker` and launch the command:<br/>
 `python setup.py install --user`
 
-It will be installed to the user directory.
+In both variants, dota2picker will be installed to the following directory (example for Python 3.6 version):<br/>
+`C:\Users\<username>\AppData\Roaming\Python\Python36\Sripts`
 
 ### Ubuntu
 
@@ -55,6 +53,8 @@ These are steps to install dota2picker on Linux:
 4. Install Dota 2 Counter Picker:<br/>
 `pip3 install dota2picker`
 
+Dota2picker will be installed to the `/usr/local/bin/` directory.
+
 There is an alternative way to install dota2picker from github repository:
 
 1. Install the `pillow` module:<br/>
@@ -69,27 +69,27 @@ https://github.com/ellysh/dota2-counter-picker/archive/master.zip
 4. Change directory to the `dota2-counter-picker` and launch the command:<br/>
 `python setup.py install --user`
 
-It will be installed to the user directory.
+Dota2picker will be installed to the `~/.local/bin` directory.
 
 ## Usage
 
 ### Picker
 
-The `picker.py` script shows you which heroes are bad or good against the chosen one. Also, the script shows which heroes can be combined well.
+The `d2-picker.py` script shows you which heroes are bad or good against the chosen one. Also, the script shows which heroes can be combined well.
 
 ![Picker Script](dota2picker/images/readme/picker-window.png)
 
-Start the `picker.py` script and click on the hero icon. The yellow color will highlight it. The red color highlights all heroes who can easily beat the selected one. We can say that the selected hero is "bad against" them. The green color means that the chosen hero is "good against" the selected ones. The blue color shows heroes which can be combined effectively with the selected hero in one team. It means that he "works well with" them.
+Start the `d2-picker.py` script and click on the hero icon. The yellow color will highlight it. The red color highlights all heroes who can easily beat the selected one. We can say that the selected hero is "bad against" them. The green color means that the chosen hero is "good against" the selected ones. The blue color shows heroes which can be combined effectively with the selected hero in one team. It means that he "works well with" them.
 
 There are three buttons with red, green and blue color at the bottom of the window. You can press each button filtering the highlighted heroes. If you press the red button, only heroes which are strong against the chosen one will be highlighted. The green and blue buttons work the same for "good against..." and "works well with..." heroes.
 
 ### Team Picker
 
-The `team-picker.py` script works similarly as `picker.py`. It shows you "bad against", "good against" and "works well with" relations between heroes.
+The `d2-team-picker.py` script works similarly as `d2-picker.py`. It shows you "bad against", "good against" and "works well with" relations between heroes.
 
 ![Team Picker Script](dota2picker/images/readme/team-picker-window.png)
 
-The `team-picker.py` script allows you to pick several heroes at the same time. Then it shows relations of all picked heroes. Meaning of the colors, which highlight heroes, are the same as for the `picker.py` script. You can filter highlights with the red, green and blue buttons at the bottom of the window.
+The `d2-team-picker.py` script allows you to pick several heroes at the same time. Then it shows relations of all picked heroes. Meaning of the colors, which highlight heroes, are the same as for the `d2-picker.py` script. You can filter highlights with the red, green and blue buttons at the bottom of the window.
 
 There are three digits under each hero icon which estimate him. These are meaning of these digits:
 
@@ -105,11 +105,11 @@ You can cancel the current selection of heroes by the *Esc* button.
 
 ### Editor
 
-The initial version of the database with heroes was prepared based on the [Dota 2 Wiki](https://dota2.gamepedia.com/Category:Counters). The `editor.py` script allows you to edit this database.
+The initial version of the database with heroes was prepared based on the [Dota 2 Wiki](https://dota2.gamepedia.com/Category:Counters). The `d2-editor.py` script allows you to edit this database.
 
 ![Editor Script](dota2picker/images/readme/editor-window.png)
 
-Start the `editor.py` script. It looks like the `picker.py` script. Meaning of all colors is the same.
+Start the `d2-editor.py` script. It looks like the `d2-picker.py` script. Meaning of all colors is the same.
 
 These are steps to remove the hero from the "bad against..." relations:
 
@@ -123,11 +123,11 @@ These are steps to remove the hero from the "bad against..." relations:
 
 You can follow the same algorithm for adding a hero to relations. Also, you should follow the same steps for adding/removing a hero to the "good against..." and "works well with..." relations.
 
-The `picker.py`, `team-picker.py`, `checker.py` and `editor.py` scripts use the same database. It means that you will see all your changes in all these scripts. The database with heroes is stored in the `database/Database.pkl` file.
+The `d2-picker.py`, `d2-team-picker.py`, `d2-checker.py` and `d2-editor.py` scripts use the same database. It means that you will see all your changes in all these scripts. The database with heroes is stored in the `database/Database.pkl` file.
 
 ### Checker
 
-After editing the database, you want to check if it is consistent. The possible issue is you specify a hero A as "bad against..." the hero B but you forget to specify vice versa relation. This relation means that the hero B should be "good against..." the hero A. The `checker.py` script checks for such kind of mistakes in the database. If you launch the script in the console (or Command Prompt on Windows), you see the report about such mistakes.
+After editing the database, you want to check if it is consistent. The possible issue is you specify a hero A as "bad against..." the hero B but you forget to specify vice versa relation. This relation means that the hero B should be "good against..." the hero A. The `d2-checker.py` script checks for such kind of mistakes in the database. If you launch the script in the console (or Command Prompt on Windows), you see the report about such mistakes.
 
 This is an example output of the script:
 ```
@@ -154,25 +154,25 @@ This is a possible output of these mistakes:
 Naga Siren has Huskar in both "bad against" and "good against" lists
 Huskar has Naga Siren in both "bad against" and "good against" lists
 ```
-It means that Naga Siren and Huskar has conflicting relations and counters each other. You should fix it by the `editor.py` script in three steps:
+It means that Naga Siren and Huskar has conflicting relations and counters each other. You should fix it by the `d2-editor.py` script in three steps:
 
 1. Remove Naga Siren from the "good against..." list of Huskar.
 
 2. Remove Huskar from the "bad against..." list of Naga Siren.
 
-3. Launch the `checker.py` script again.
+3. Launch the `d2-checker.py` script again.
 
 Now the report about conflicts should be empty.
 
-The `checker.py` script works with the database in the Pickle format (the `database/Database.pkl` file).
+The `d2-checker.py` script works with the database in the Pickle format (the `database/Database.pkl` file).
 
 ### Import and Export
 
-The `picker.py`, `team-picker.py`, `checker.py` and `editor.py` scripts use the database in the Pickle format (the `database/Database.pkl` file). This is a binary format, which is not convenient for reviewing in a text editor and comparing with other database files. 
+The `d2-picker.py`, `d2-team-picker.py`, `d2-checker.py` and `d2-editor.py` scripts use the database in the Pickle format (the `database/Database.pkl` file). This is a binary format, which is not convenient for reviewing in a text editor and comparing with other database files. 
 
-The `pkl2csv.py` script allows you to convert the database from the Pickle format to the CSV. If you launch the script, you get the `database/Database.csv` file. You can open this file in any text editor or MS/Libre Office application.
+The `d2-pkl2csv.py` script allows you to convert the database from the Pickle format to the CSV. If you launch the script, you get the `database/Database.csv` file. You can open this file in any text editor or MS/Libre Office application.
 
-When you are done with reviewing the database in the CSV format, you should launch the `csv2pkl.py` script. It converts the database back to the Pickle format and stores it in the `database/Database.pkl` file.
+When you are done with reviewing the database in the CSV format, you should launch the `d2-csv2pkl.py` script. It converts the database back to the Pickle format and stores it in the `database/Database.pkl` file.
 
 ## Update
 
@@ -181,7 +181,7 @@ These are the recommended steps for updating Dota 2 Counter Picker:
 1. Download the archive with the latest version of the scripts and extract it to the new folder:<br/>
 https://github.com/ellysh/dota2-counter-picker/archive/master.zip
 
-2. Go to the old folder of the picker and export your database to the CSV format (with the `pkl2csv.py` script).
+2. Go to the old folder of the picker and export your database to the CSV format (with the `d2-pkl2csv.py` script).
 
 3. Copy both `database/Database.pkl` and `database/Database.csv` files to the folder with the new version of the picker (into the `database` sub-folder).
 
