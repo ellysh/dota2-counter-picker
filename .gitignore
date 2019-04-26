@@ -1,5 +1,4 @@
 *.ods#
 build/
-dist/
 dota2picker.egg-info/
 dota2picker/__pycache__/
