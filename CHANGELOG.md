@@ -1,3 +1,6 @@
+* version 0.8.0
+  - Fix the bug when database changes have no effect.
+
 * version 0.7
   - Build the package for PyPi.
   - Code refactoring.
