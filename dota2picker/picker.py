@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import sys
 from pkg_resources import resource_filename
 from .version import VERSION
 from .gui import INDEX_COLORS, load_heroes, Color, get_next_cell

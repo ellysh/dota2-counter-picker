@@ -2,11 +2,15 @@
 import pickle
 import os
 import ntpath
+import sys
 from csv import reader
 from pkg_resources import resource_filename
 from shutil import copyfile
 
-USER_PATH = os.path.expanduser("~") + "/.local/share/dota2picker/"
+if sys.platform == "win32":
+    USER_PATH = os.path.expanduser("~") + "/AppData/Local/dota2picker/"
+else:
+    USER_PATH = os.path.expanduser("~") + "/.local/share/dota2picker/"
 
 def get_filename(resource):
     return USER_PATH + ntpath.basename(resource)
