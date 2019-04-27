@@ -10,7 +10,7 @@ You need two Python 3, Tkinter and Pillow modules to launch the Dota 2 Counter P
 
 ### Windows
 
-There are steps to install dota2picker on Windows:
+These are steps to install dota2picker on Windows:
 
 1. Download the Python 3 distribution:<br/>
 https://www.python.org/downloads/release/python-373/
@@ -20,7 +20,7 @@ https://www.python.org/downloads/release/python-373/
 3. Install Dota 2 Counter Picker:<br/>
 `python -m pip install --user dota2picker`
 
-There is an alternative way to install dota2picker from github repository:
+This is an alternative way to install dota2picker from github repository:
 
 1. Install the `pillow` module:<br/>
 `python -m pip install pillow`
@@ -55,7 +55,7 @@ These are steps to install dota2picker on Linux:
 
 Dota2picker will be installed to the `/usr/local/bin/` directory.
 
-There is an alternative way to install dota2picker from github repository:
+This is an alternative way to install dota2picker from github repository:
 
 1. Install the `pillow` module:<br/>
 `sudo apt-get install python3-pil.imagetk`
@@ -123,7 +123,13 @@ These are steps to remove the hero from the "bad against..." relations:
 
 You can follow the same algorithm for adding a hero to relations. Also, you should follow the same steps for adding/removing a hero to the "good against..." and "works well with..." relations.
 
-The `d2-picker.py`, `d2-team-picker.py`, `d2-checker.py` and `d2-editor.py` scripts use the same database. It means that you will see all your changes in all these scripts. The database with heroes is stored in the `database/Database.pkl` file.
+The `d2-picker.py`, `d2-team-picker.py`, `d2-checker.py` and `d2-editor.py` scripts use the same database. It means that you will see all your changes in all these scripts.
+
+This is path to database with heroes on Linux:<br/>
+`~/.local/share/dota2picker/Database.pkl`
+
+This is path to database with heroes on Windows:<br/>
+`C:\User\<username>\AppData\Local\dota2picker\Database.pkl`
 
 ### Checker
 
@@ -164,28 +170,19 @@ It means that Naga Siren and Huskar has conflicting relations and counters each 
 
 Now the report about conflicts should be empty.
 
-The `d2-checker.py` script works with the database in the Pickle format (the `database/Database.pkl` file).
+The `d2-checker.py` script works with the database in the Pickle format (the `Database.pkl` file).
 
 ### Import and Export
 
-The `d2-picker.py`, `d2-team-picker.py`, `d2-checker.py` and `d2-editor.py` scripts use the database in the Pickle format (the `database/Database.pkl` file). This is a binary format, which is not convenient for reviewing in a text editor and comparing with other database files. 
+The `d2-picker.py`, `d2-team-picker.py`, `d2-checker.py` and `d2-editor.py` scripts use the database in the Pickle format (the `Database.pkl` file). This is a binary format, which is not convenient for reviewing in a text editor and comparing with other database files.
 
-The `d2-pkl2csv.py` script allows you to convert the database from the Pickle format to the CSV. If you launch the script, you get the `database/Database.csv` file. You can open this file in any text editor or MS/Libre Office application.
+The `d2-pkl2csv.py` script allows you to convert the database from the Pickle format to the CSV. If you launch the script, you get the `Database.csv` file in the database directory (see the "Editor" section). You can open this file in any text editor or MS/Libre Office application.
 
-When you are done with reviewing the database in the CSV format, you should launch the `d2-csv2pkl.py` script. It converts the database back to the Pickle format and stores it in the `database/Database.pkl` file.
+When you are done with reviewing the database in the CSV format, you should launch the `d2-csv2pkl.py` script. It converts the database back to the Pickle format and stores it in the `Database.pkl` file.
 
 ## Update
 
-These are the recommended steps for updating Dota 2 Counter Picker:
-
-1. Download the archive with the latest version of the scripts and extract it to the new folder:<br/>
-https://github.com/ellysh/dota2-counter-picker/archive/master.zip
-
-2. Go to the old folder of the picker and export your database to the CSV format (with the `d2-pkl2csv.py` script).
-
-3. Copy both `database/Database.pkl` and `database/Database.csv` files to the folder with the new version of the picker (into the `database` sub-folder).
-
-4. Remove the folder with the old version of the scripts.
+You can update Dota 2 Counter Picker with the pip package manager or from github repository (see the "Installation" section). Your database files stay unchanged after the update.
 
 ## Contacts
 
