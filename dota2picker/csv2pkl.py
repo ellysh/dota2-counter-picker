@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-from .persistence import Csv, Pickle, csv2pickle
+from .persistence import Csv, Pickle
 
 
 def main():
-    csv2pickle(Csv.HEROES_DB, Pickle.HEROES_DB)
-
+    heroes = Csv.load(Csv.HEROES_DB)
+    Pickle.save(heroes, Pickle.HEROES_DB)
 
 if __name__ == '__main__':
   main()

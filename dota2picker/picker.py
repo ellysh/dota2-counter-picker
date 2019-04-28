@@ -173,7 +173,7 @@ def make_window():
     global INDEX_BUTTONS
 
     window = Tk()
-    window.title("Dota 2 Team Picker " + VERSION)
+    window.title("Dota 2 Picker " + VERSION)
 
     buttons_frame = Frame(height=2, bd=1, relief="sunken")
     buttons_frame.pack(fill="both", expand=True)

@@ -20,9 +20,10 @@ def copy_resource_file(resource):
 
     if os.path.exists(path): return
 
-    os.mkdir(USER_PATH)
-    copyfile(resource, path)
+    if not os.path.exists(USER_PATH):
+        os.mkdir(USER_PATH)
 
+    copyfile(resource, path)
 
 class Pickle(object):
     HEROES_DB = resource_filename('dota2picker', 'database/Database.pkl')
@@ -67,13 +68,3 @@ class Csv(object):
                     good_against=', '.join(heroes[hero][1]),
                     works_well=', '.join(heroes[hero][2])
                 ))
-
-
-def csv2pickle(csv_file, pickle_file):
-    heroes = Csv.load(csv_file)
-    Pickle.save(heroes, pickle_file)
-
-
-def pickle2csv(pickl_file, csv_file):
-    heroes = Pickle.load(pickl_file)
-    Csv.save(heroes, csv_file)
