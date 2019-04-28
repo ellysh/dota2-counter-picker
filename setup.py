@@ -28,7 +28,7 @@ if __name__ == '__main__':
                 'd2-csv2pkl=dota2picker.csv2pkl:main',
                 'd2-editor=dota2picker.editor:main',
                 'd2-pk2csv=dota2picker.pkl2csv:main',
-                'd2-team-picker=dota2picker.team_picker:main',
+                'd2-picker=dota2picker.picker:main',
             ],
         },
         classifiers=[
