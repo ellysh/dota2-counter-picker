@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from enum import Enum
+from pkg_resources import resource_filename
 from tkinter import Button, Label, Frame, Tk
 from PIL import ImageTk, Image
 from .version import VERSION
@@ -42,7 +43,9 @@ def add_button(window, button_click, hero, column, row):
     button = Button(window)
     button.grid(column=column, row=row)
 
-    resource = resource_filename('dota2picker', 'images/heroes/{}.png'.       format(hero))
+    resource = resource_filename('dota2picker',
+        'images/heroes/{}.png'.format(hero))
+
     img = ImageTk.PhotoImage(Image.open(resource))
 
     button.config(image=img, command=lambda: button_click(hero),
@@ -66,7 +69,7 @@ def add_buttons(window):
 
             column, row = get_next_cell(column, row)
 
-        BUTTONS[key] = add_button(window, button_click, key, \
+        BUTTONS[key] = add_button(window, model.button_click, key,
                                   column, row)
 
         column, row = get_next_cell(column, row)

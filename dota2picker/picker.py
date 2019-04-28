@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-from pkg_resources import resource_filename
 from .view import make_window
 from . import model
 
