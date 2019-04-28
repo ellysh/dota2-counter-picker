@@ -6,7 +6,7 @@ from . import model
 def main():
     model.load_heroes()
 
-    make_window(True)
+    make_window("Dota 2 Editor", True)
 
 
 if __name__ == '__main__':

@@ -163,11 +163,11 @@ def add_buttons(window, is_editor):
         column, row = get_next_cell(column, row)
 
 
-def make_window(is_editor):
+def make_window(title, is_editor):
     global INDEX_BUTTONS
 
     window = Tk()
-    window.title("Dota 2 Picker " + VERSION)
+    window.title(title + " " + VERSION)
 
     buttons_frame = Frame(height=2, bd=1, relief="sunken")
     buttons_frame.pack(fill="both", expand=True)
