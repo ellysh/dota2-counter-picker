@@ -6,7 +6,7 @@ from . import model
 def main():
     model.load_heroes()
 
-    make_window()
+    make_window(True)
 
 
 if __name__ == '__main__':

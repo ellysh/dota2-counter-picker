@@ -67,7 +67,26 @@ def update_scores(hero, increment):
         Relations.Well.value, increment)
 
 
-def process_button_click(hero_name):
+def process_edit_click(hero_name, index):
+    global HEROES
+
+    selected_hero = None
+
+    for hero, state in HEROES_STATES.items():
+        if state.is_selected:
+            selected_hero = hero
+
+    if hero_name in HEROES[selected_hero][index]:
+        HEROES[selected_hero][index].remove(hero_name)
+    else:
+        HEROES[selected_hero][index].append(hero_name)
+
+    Pickle.save(HEROES, Pickle.HEROES_DB)
+
+    heroes2states(HEROES)
+
+
+def process_select_click(hero_name):
     increment = select_hero(hero_name)
 
     update_scores(hero_name, increment)

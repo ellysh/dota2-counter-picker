@@ -35,27 +35,6 @@ def get_next_cell(column, row):
         row += 1
     return column, row
 
-def add_label(window, letter, column, row):
-    label = Label(window, text=letter, font=("Arial Bold", 12))
-    label.grid(column=column, row=row)
-
-
-def add_button(window, button_click, hero, column, row):
-    button = Button(window)
-    button.grid(column=column, row=row)
-
-    resource = resource_filename('dota2picker',
-        'images/heroes/{}.png'.format(hero))
-
-    img = ImageTk.PhotoImage(Image.open(resource))
-
-    button.config(image=img, command=lambda: button_click(hero),
-                  compound="top", text="0 0 0",
-                  font=("Arial Bold", 7), pady=0, padx=0)
-
-    return button, img
-
-
 def reset_all_buttons():
     global BUTTONS
 
@@ -127,13 +106,38 @@ def enable_index(index):
     update_view()
 
 
-def button_click(hero_name):
-    model.process_button_click(hero_name)
+def button_click(hero_name, is_editor):
+
+    if is_editor and ACTIVE_INDEX != None:
+        model.process_edit_click(hero_name, ACTIVE_INDEX)
+    else:
+        model.process_select_click(hero_name)
 
     update_view()
 
 
-def add_buttons(window):
+def add_label(window, letter, column, row):
+    label = Label(window, text=letter, font=("Arial Bold", 12))
+    label.grid(column=column, row=row)
+
+
+def add_button(window, button_click, hero, column, row, is_editor):
+    button = Button(window)
+    button.grid(column=column, row=row)
+
+    resource = resource_filename('dota2picker',
+        'images/heroes/{}.png'.format(hero))
+
+    img = ImageTk.PhotoImage(Image.open(resource))
+
+    button.config(image=img, command=lambda: button_click(hero, is_editor),
+                  compound="top", text="0 0 0",
+                  font=("Arial Bold", 7), pady=0, padx=0)
+
+    return button, img
+
+
+def add_buttons(window, is_editor):
     global BUTTONS
 
     row = 0
@@ -148,12 +152,12 @@ def add_buttons(window):
             column, row = get_next_cell(column, row)
 
         BUTTONS[key] = add_button(window, button_click, key,
-                                  column, row)
+                                  column, row, is_editor)
 
         column, row = get_next_cell(column, row)
 
 
-def make_window():
+def make_window(is_editor):
     global INDEX_BUTTONS
 
     window = Tk()
@@ -162,7 +166,7 @@ def make_window():
     buttons_frame = Frame(height=2, bd=1, relief="sunken")
     buttons_frame.pack(fill="both", expand=True)
 
-    add_buttons(buttons_frame)
+    add_buttons(buttons_frame, is_editor)
 
     info_frame = Frame(height=2, bd=1, relief="sunken")
     info_frame.pack(fill="both", expand=True)
