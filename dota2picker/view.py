@@ -111,7 +111,7 @@ def button_click(hero_name, is_editor):
     if is_editor and ACTIVE_INDEX != None:
         model.process_edit_click(hero_name, ACTIVE_INDEX)
     else:
-        model.process_select_click(hero_name)
+        model.process_select_click(hero_name, is_editor)
 
     update_view()
 

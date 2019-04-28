@@ -87,7 +87,12 @@ def process_edit_click(hero_name, index):
     Pickle.save(HEROES, Pickle.HEROES_DB)
 
 
-def process_select_click(hero_name):
+def process_select_click(hero_name, is_single):
+    global HEROES
+
+    if is_single:
+        heroes2states(HEROES)
+
     increment = select_hero(hero_name)
 
     update_scores(hero_name, increment)
