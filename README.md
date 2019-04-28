@@ -81,15 +81,7 @@ The `d2-picker.py` script shows you which heroes are bad or good against the cho
 
 Start the `d2-picker.py` script and click on the hero icon. The yellow color will highlight it. The red color highlights all heroes who can easily beat the selected one. We can say that the selected hero is "bad against" them. The green color means that the chosen hero is "good against" the selected ones. The blue color shows heroes which can be combined effectively with the selected hero in one team. It means that he "works well with" them.
 
-There are three buttons with red, green and blue color at the bottom of the window. You can press each button filtering the highlighted heroes. If you press the red button, only heroes which are strong against the chosen one will be highlighted. The green and blue buttons work the same for "good against..." and "works well with..." heroes.
-
-### Team Picker
-
-The `d2-team-picker.py` script works similarly as `d2-picker.py`. It shows you "bad against", "good against" and "works well with" relations between heroes.
-
-![Team Picker Script](dota2picker/images/readme/team-picker-window.png)
-
-The `d2-team-picker.py` script allows you to pick several heroes at the same time. Then it shows relations of all picked heroes. Meaning of the colors, which highlight heroes, are the same as for the `d2-picker.py` script. You can filter highlights with the red, green and blue buttons at the bottom of the window.
+The script allows you to pick several heroes at the same time. Then it shows relations of all picked heroes.
 
 There are three digits under each hero icon which estimate him. These are meaning of these digits:
 
@@ -97,9 +89,11 @@ There are three digits under each hero icon which estimate him. These are meanin
 2. How many of the picked heroes are good against this one?
 3. How many of the picked heroes are works well with this one?
 
-Let's consider an example with the window on the screenshot above. The enemy team has picked two heroes: Mars and Monkey King. Both of them are bad against Batrider. Thus, Batrider gets scores "2 0 0". If you pick Batrider in the game, it will be a good choice in this case.
+Let's consider an example with the window on the screenshot above. The enemy team has picked two heroes: Mars and Monkey King. Both of them are bad against Batrider. Thus, Batrider gets scores "2 0 0". If you pick Batrider for your team, it will be a good choice in this case.
 
 At the same time, Monkey King is bad against Spectre but Mars is good against her. Thus, Spectre gets scores "1 1 0". She is still highlighted red because her bad and good scores are equal. She will get the green color in case of "1 2 0" scores for example. If you pick Spectre against Mars and Monkey King, probably you will have a tough game.
+
+There are three buttons with red, green and blue color at the bottom of the window. You can press each button and filter the highlighted heroes. If you press the red button, only heroes which are strong against the chosen one will be highlighted. The green and blue buttons work the same for "good against..." and "works well with..." heroes.
 
 You can cancel the current selection of heroes by the *Esc* button.
 
@@ -123,7 +117,7 @@ These are steps to remove the hero from the "bad against..." relations:
 
 You can follow the same algorithm for adding a hero to relations. Also, you should follow the same steps for adding/removing a hero to the "good against..." and "works well with..." relations.
 
-The `d2-picker.py`, `d2-team-picker.py`, `d2-checker.py` and `d2-editor.py` scripts use the same database. It means that you will see all your changes in all these scripts.
+The `d2-picker.py`, `d2-checker.py` and `d2-editor.py` scripts use the same database. It means that you will see all your changes in all these scripts.
 
 This is path to database with heroes on Linux:<br/>
 `~/.local/share/dota2picker/Database.pkl`
@@ -174,7 +168,7 @@ The `d2-checker.py` script works with the database in the Pickle format (the `Da
 
 ### Import and Export
 
-The `d2-picker.py`, `d2-team-picker.py`, `d2-checker.py` and `d2-editor.py` scripts use the database in the Pickle format (the `Database.pkl` file). This is a binary format, which is not convenient for reviewing in a text editor and comparing with other database files.
+The `d2-picker.py`, `d2-checker.py` and `d2-editor.py` scripts use the database in the Pickle format (the `Database.pkl` file). This is a binary format, which is not convenient for reviewing in a text editor and comparing with other database files.
 
 The `d2-pkl2csv.py` script allows you to convert the database from the Pickle format to the CSV. If you launch the script, you get the `Database.csv` file in the database directory (see the "Editor" section). You can open this file in any text editor or MS/Libre Office application.
 
