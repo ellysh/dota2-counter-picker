@@ -60,7 +60,7 @@ def update_view():
     pass
 
 def button_click(hero_name):
-    model.select_hero(hero_name)
+    model.process_button_click(hero_name)
 
     update_view()
 
