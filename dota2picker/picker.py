@@ -2,7 +2,7 @@
 from pkg_resources import resource_filename
 from .version import VERSION
 from .gui import INDEX_COLORS, load_heroes, Color, get_next_cell
-from tkinter import *
+from tkinter import Button, Label, Frame, Tk
 from PIL import ImageTk, Image
 
 INDEX_BUTTONS = {}
@@ -103,7 +103,7 @@ def add_button(window, button_click, hero, column, row):
     img = ImageTk.PhotoImage(Image.open(resource))
 
     button.config(image=img, command=lambda: button_click(hero),
-                  compound=TOP, text="0 0 0",
+                  compound="top", text="0 0 0",
                   font=("Arial Bold", 7), pady=0, padx=0)
 
     return button, img
@@ -175,40 +175,40 @@ def make_window():
     window = Tk()
     window.title("Dota 2 Team Picker " + VERSION)
 
-    buttons_frame = Frame(height=2, bd=1, relief=SUNKEN)
-    buttons_frame.pack(fill=BOTH, expand=True)
+    buttons_frame = Frame(height=2, bd=1, relief="sunken")
+    buttons_frame.pack(fill="both", expand=True)
 
     add_buttons(buttons_frame)
 
-    info_frame = Frame(height=2, bd=1, relief=SUNKEN)
-    info_frame.pack(fill=BOTH, expand=True)
+    info_frame = Frame(height=2, bd=1, relief="sunken")
+    info_frame.pack(fill="both", expand=True)
 
     INDEX_BUTTONS[0] = Button(info_frame)
     INDEX_BUTTONS[0].grid(column=0, row=0)
     INDEX_BUTTONS[0].config(command=lambda: enable_index(0),
-                            compound=TOP, bg=Color.Red.value, width=8, height=2,
+                            compound="top", bg=Color.Red.value, width=8, height=2,
                             font=("Arial Bold", 5), pady=0, padx=0, relief="raised")
 
     INDEX_BUTTONS[1] = Button(info_frame)
     INDEX_BUTTONS[1].grid(column=0, row=1)
     INDEX_BUTTONS[1].config(command=lambda: enable_index(1),
-                            compound=TOP, bg=Color.Green.value, width=8, height=2,
+                            compound="top", bg=Color.Green.value, width=8, height=2,
                             font=("Arial Bold", 5), pady=0, padx=0, relief="raised")
 
     INDEX_BUTTONS[2] = Button(info_frame)
     INDEX_BUTTONS[2].grid(column=0, row=2)
     INDEX_BUTTONS[2].config(command=lambda: enable_index(2),
-                            compound=TOP, bg=Color.Azure.value, width=8, height=2,
+                            compound="top", bg=Color.Azure.value, width=8, height=2,
                             font=("Arial Bold", 5), pady=0, padx=0, relief="raised")
 
     bad_label = Label(info_frame, font=("Arial Bold", 12), text="Bad against...")
-    bad_label.grid(column=1, row=0, sticky=W, padx=(20, 0))
+    bad_label.grid(column=1, row=0, sticky='W', padx=(20, 0))
 
     good_label = Label(info_frame, font=("Arial Bold", 12), text="Good against...")
-    good_label.grid(column=1, row=1, sticky=W, padx=(20, 0))
+    good_label.grid(column=1, row=1, sticky='W', padx=(20, 0))
 
     works_label = Label(info_frame, font=("Arial Bold", 12), text="Works well with...")
-    works_label.grid(column=1, row=2, sticky=W, padx=(20, 0))
+    works_label.grid(column=1, row=2, sticky='W', padx=(20, 0))
 
     window.bind('<Escape>', lambda event: reset_picked_heroes())
     window.mainloop()
