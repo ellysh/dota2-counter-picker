@@ -69,6 +69,7 @@ def update_scores(hero, increment):
 
 def process_edit_click(hero_name, index):
     global HEROES
+    global HEROES_STATES
 
     selected_hero = None
 
@@ -78,12 +79,12 @@ def process_edit_click(hero_name, index):
 
     if hero_name in HEROES[selected_hero][index]:
         HEROES[selected_hero][index].remove(hero_name)
+        HEROES_STATES[hero_name].scores = [0, 0, 0]
     else:
         HEROES[selected_hero][index].append(hero_name)
+        HEROES_STATES[hero_name].scores[index] = 1
 
     Pickle.save(HEROES, Pickle.HEROES_DB)
-
-    heroes2states(HEROES)
 
 
 def process_select_click(hero_name):
