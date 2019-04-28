@@ -11,6 +11,7 @@ INDEX_BUTTONS = {}
 
 BUTTONS = {}
 
+ACTIVE_INDEX = None
 
 class Color(Enum):
     Default = "#d9d9d9"
@@ -63,6 +64,12 @@ def reset_all_buttons():
         value[0].config(text="0 0 0")
 
 
+def is_active_index_match(index):
+    global ACTIVE_INDEX
+
+    return ACTIVE_INDEX == None or ACTIVE_INDEX == index
+
+
 def highlight_heroes():
     for hero, state in model.HEROES_STATES.items():
         if state.is_selected:
@@ -70,21 +77,54 @@ def highlight_heroes():
             continue
 
         if state.scores[model.Relations.Good.value] <= state.scores[model.Relations.Bad.value] \
-            and state.scores[model.Relations.Bad.value] != 0:
+            and state.scores[model.Relations.Bad.value] != 0 \
+            and is_active_index_match(model.Relations.Bad.value) :
 
             BUTTONS[hero][0].config(bg=Color.Red.value)
-        elif state.scores[model.Relations.Good.value] != 0:
+
+        elif state.scores[model.Relations.Good.value] != 0 \
+             and is_active_index_match(model.Relations.Good.value):
+
             BUTTONS[hero][0].config(bg=Color.Green.value)
-        elif state.scores[model.Relations.Well.value] != 0:
+
+        elif state.scores[model.Relations.Well.value] != 0 \
+             and is_active_index_match(model.Relations.Well.value):
+
             BUTTONS[hero][0].config(bg=Color.Azure.value)
 
         BUTTONS[hero][0].config(text=' '.join(str(i) for i in state.scores))
+
+
+def toggle_index_button(index):
+    global INDEX_BUTTONS
+
+    for key in INDEX_BUTTONS.keys():
+        if key != index:
+            INDEX_BUTTONS[key].config(relief="raised")
+
+    if INDEX_BUTTONS[index].config("relief")[-1] == "sunken":
+        INDEX_BUTTONS[index].config(relief="raised")
+    else:
+        INDEX_BUTTONS[index].config(relief="sunken")
 
 
 def update_view():
     reset_all_buttons()
 
     highlight_heroes()
+
+
+def enable_index(index):
+    global ACTIVE_INDEX
+
+    toggle_index_button(index)
+
+    if index == ACTIVE_INDEX:
+        ACTIVE_INDEX = None
+    else:
+        ACTIVE_INDEX = index
+
+    update_view()
 
 
 def button_click(hero_name):
