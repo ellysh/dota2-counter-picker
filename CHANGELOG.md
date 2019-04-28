@@ -1,3 +1,7 @@
+* version 0.9.0
+  - Apply the MVC pattern.
+  - Code refactoring.
+
 * version 0.8.1
   - Remove the deprecated script picker.
   - Rename the team_picker script to picker.
