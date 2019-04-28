@@ -55,14 +55,43 @@ def add_button(window, button_click, hero, column, row):
     return button, img
 
 
+def reset_all_buttons():
+    global BUTTONS
+
+    for key, value in BUTTONS.items():
+        value[0].config(bg=Color.Default.value)
+        value[0].config(text="0 0 0")
+
+
+def highlight_heroes():
+    for hero, state in model.HEROES_STATES.items():
+        if state.is_selected:
+            BUTTONS[hero][0].config(bg=Color.Yellow.value)
+            continue
+
+        if state.scores[model.Relations.Good.value] <= state.scores[model.Relations.Bad.value] \
+            and state.scores[model.Relations.Bad.value] != 0:
+
+            BUTTONS[hero][0].config(bg=Color.Red.value)
+        elif state.scores[model.Relations.Good.value] != 0:
+            BUTTONS[hero][0].config(bg=Color.Green.value)
+        elif state.scores[model.Relations.Well.value] != 0:
+            BUTTONS[hero][0].config(bg=Color.Azure.value)
+
+        BUTTONS[hero][0].config(text=' '.join(str(i) for i in state.scores))
+
+
 def update_view():
-    # TODO: Implement this function
-    pass
+    reset_all_buttons()
+
+    highlight_heroes()
+
 
 def button_click(hero_name):
     model.process_button_click(hero_name)
 
     update_view()
+
 
 def add_buttons(window):
     global BUTTONS

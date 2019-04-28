@@ -17,10 +17,8 @@ class HeroState:
         self.bad_list = hero_relations[Relations.Bad.value]
         self.good_list = hero_relations[Relations.Good.value]
         self.well_list = hero_relations[Relations.Well.value]
-        self.selected = False
-
-        # TODO: Use score for choosing the right color for highlighting
-        self.score = "0 0 0"
+        self.is_selected = False
+        self.scores = [0, 0, 0]
 
 
 def heroes2states(heroes):
@@ -38,14 +36,12 @@ def load_heroes():
 def select_hero(hero_name):
     for hero, state in HEROES_STATES.items():
         if hero == hero_name:
-            state.selected = not state.selected
+            state.is_selected = not state.is_selected
             break
 
 
 def increment_score(state, index):
-    scores = state.score.split(' ')
-    scores[index] = str(int(scores[index]) + 1)
-    state.score = ' '.join(scores)
+    state.scores[index] = state.scores[index] + 1
 
 
 def update_related_scores(list, relation):
@@ -53,14 +49,14 @@ def update_related_scores(list, relation):
 
     for hero, state in HEROES_STATES.items():
         if hero in list:
-            increment_score(state, Relations.Bad.value)
+            increment_score(state, relation)
 
 
 def update_scores():
     global HEROES_STATES
 
     for hero, state in HEROES_STATES.items():
-        if state.selected:
+        if state.is_selected:
             update_related_scores(state.bad_list, Relations.Bad.value)
             update_related_scores(state.good_list, Relations.Good.value)
             update_related_scores(state.well_list, Relations.Well.value)
