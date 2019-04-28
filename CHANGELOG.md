@@ -1,3 +1,7 @@
+* version 0.8.1
+  - Remove the deprecated script picker.
+  - Rename the team_picker script to picker.
+
 * version 0.8.0
   - Fix the bug when database changes have no effect.
 

@@ -1,4 +1,4 @@
-# Dota 2 Counter Picker 0.8.0 version
+# Dota 2 Counter Picker 0.8.1 version
 
 This the utility for choosing the best combinations of heroes and counter picks.
 
