@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 from pkg_resources import resource_filename
-from .version import VERSION
-from .database import Pickle
-from .gui import INDEX_COLORS, Color, get_next_cell
 from tkinter import Button, Label, Frame, Tk
 from PIL import ImageTk, Image
+from .version import VERSION
+from .database import Pickle
+from .view import INDEX_COLORS, Color, get_next_cell
 
 INDEX_BUTTONS = {}
 
