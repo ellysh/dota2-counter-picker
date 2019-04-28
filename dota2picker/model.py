@@ -37,32 +37,37 @@ def select_hero(hero_name):
     for hero, state in HEROES_STATES.items():
         if hero == hero_name:
             state.is_selected = not state.is_selected
-            break
+
+            if state.is_selected:
+                return 1
+            else:
+                return -1
+
+    return 0
 
 
-def increment_score(state, index):
-    state.scores[index] = state.scores[index] + 1
-
-
-def update_related_scores(list, relation):
+def update_related_scores(list, relation, increment):
     global HEROES_STATES
 
     for hero, state in HEROES_STATES.items():
         if hero in list:
-            increment_score(state, relation)
+            state.scores[relation] = state.scores[relation] + increment
 
 
-def update_scores():
+def update_scores(hero, increment):
     global HEROES_STATES
 
-    for hero, state in HEROES_STATES.items():
-        if state.is_selected:
-            update_related_scores(state.bad_list, Relations.Bad.value)
-            update_related_scores(state.good_list, Relations.Good.value)
-            update_related_scores(state.well_list, Relations.Well.value)
+    update_related_scores(HEROES_STATES[hero].bad_list,
+        Relations.Bad.value, increment)
+
+    update_related_scores(HEROES_STATES[hero].good_list,
+        Relations.Good.value, increment)
+
+    update_related_scores(HEROES_STATES[hero].well_list,
+        Relations.Well.value, increment)
 
 
 def process_button_click(hero_name):
-    select_hero(hero_name)
+    increment = select_hero(hero_name)
 
-    update_scores()
+    update_scores(hero_name, increment)
