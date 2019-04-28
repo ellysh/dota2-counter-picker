@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 from pkg_resources import resource_filename
-from .version import VERSION
-from .gui import INDEX_COLORS, load_heroes, Color, get_next_cell
 from tkinter import Button, Label, Frame, Tk
 from PIL import ImageTk, Image
+from .version import VERSION
+from .gui import INDEX_COLORS, Color, get_next_cell
+from .database import Pickle
 
 INDEX_BUTTONS = {}
 
@@ -216,7 +217,7 @@ def make_window():
 
 def main():
     global HEROES
-    HEROES = load_heroes()
+    HEROES = Pickle.load(Pickle.HEROES_DB)
     make_window()
 
 

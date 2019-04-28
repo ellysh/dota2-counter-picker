@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from enum import Enum
-from .database import Pickle
 
 
 class Color(Enum):
@@ -10,17 +9,11 @@ class Color(Enum):
     Yellow = "#f9ef31"
     Red = "#ff4f4f"
 
-
 INDEX_COLORS = {
     0: Color.Red.value,
     1: Color.Green.value,
     2: Color.Azure.value
 }
-
-
-def load_heroes():
-    return Pickle.load(Pickle.HEROES_DB)
-
 
 def get_next_cell(column, row):
     column += 1

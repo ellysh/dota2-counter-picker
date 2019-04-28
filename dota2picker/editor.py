@@ -2,7 +2,7 @@
 from pkg_resources import resource_filename
 from .version import VERSION
 from .database import Pickle
-from .gui import INDEX_COLORS, load_heroes, Color, get_next_cell
+from .gui import INDEX_COLORS, Color, get_next_cell
 from tkinter import Button, Label, Frame, Tk
 from PIL import ImageTk, Image
 
@@ -13,11 +13,6 @@ ACTIVE_INDEX = None
 
 HEROES = {}
 BUTTONS = {}
-
-
-def write_heroes():
-    global HEROES
-    Pickle.save(HEROES, Pickle.HEROES_DB)
 
 
 def reset_all_buttons():
@@ -63,7 +58,7 @@ def edit_database(edited_hero):
     else:
         HEROES[SELECTED_HERO][ACTIVE_INDEX].append(edited_hero)
 
-    write_heroes()
+    Pickle.save(HEROES, Pickle.HEROES_DB)
 
 
 def button_click(hero_name):
@@ -192,7 +187,8 @@ def make_window():
 
 def main():
     global HEROES
-    HEROES = load_heroes()
+    HEROES = Pickle.load(Pickle.HEROES_DB)
+
     make_window()
 
 

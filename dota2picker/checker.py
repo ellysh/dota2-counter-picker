@@ -22,17 +22,6 @@ def print_usage(usage):
     sys.stderr.write(usage)
     sys.exit(1)
 
-
-def load_heroes():
-    global HEROES
-    HEROES = Pickle.load(Pickle.HEROES_DB)
-
-
-def save_heroes():
-    global HEROES
-    Pickle.save(HEROES, Pickle.HEROES_DB)
-
-
 def check_conflicts(hero, bad_list, good_list):
     for relation in bad_list:
         if relation in good_list:
@@ -85,6 +74,7 @@ def main():
     global _ADD_COMMAND
     global _DELETE_COMMAND
     global COMMAND
+    global HEROES
 
     if len(sys.argv) == 2:
         if sys.argv[1] == _ADD_COMMAND or sys.argv[1] == _DELETE_COMMAND:
@@ -94,10 +84,9 @@ def main():
     elif 2 < len(sys.argv):
         print_usage(_USAGE)
 
-    load_heroes()
+    HEROES = Pickle.load(Pickle.HEROES_DB)
     check_relations()
-    save_heroes()
-
+    Pickle.save(HEROES, Pickle.HEROES_DB)
 
 if __name__ == '__main__':
     main()
