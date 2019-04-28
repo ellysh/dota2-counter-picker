@@ -77,6 +77,9 @@ def process_edit_click(hero_name, index):
         if state.is_selected:
             selected_hero = hero
 
+    if not selected_hero:
+        return
+
     if hero_name in HEROES[selected_hero][index]:
         HEROES[selected_hero][index].remove(hero_name)
         HEROES_STATES[hero_name].scores = [0, 0, 0]
@@ -87,11 +90,15 @@ def process_edit_click(hero_name, index):
     Pickle.save(HEROES, Pickle.HEROES_DB)
 
 
-def process_select_click(hero_name, is_single):
+def reset_selected_heroes():
     global HEROES
 
+    heroes2states(HEROES)
+
+
+def process_select_click(hero_name, is_single):
     if is_single:
-        heroes2states(HEROES)
+        reset_selected_heroes()
 
     increment = select_hero(hero_name)
 

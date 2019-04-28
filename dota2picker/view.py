@@ -116,6 +116,12 @@ def button_click(hero_name, is_editor):
     update_view()
 
 
+def reset_picked_heroes():
+    model.reset_selected_heroes()
+
+    update_view()
+
+
 def add_label(window, letter, column, row):
     label = Label(window, text=letter, font=("Arial Bold", 12))
     label.grid(column=column, row=row)
