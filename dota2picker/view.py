@@ -55,6 +55,15 @@ def add_button(window, button_click, hero, column, row):
     return button, img
 
 
+def update_view():
+    # TODO: Implement this function
+    pass
+
+def button_click(hero_name):
+    model.select_hero(hero_name)
+
+    update_view()
+
 def add_buttons(window):
     global BUTTONS
 
@@ -69,7 +78,7 @@ def add_buttons(window):
 
             column, row = get_next_cell(column, row)
 
-        BUTTONS[key] = add_button(window, model.button_click, key,
+        BUTTONS[key] = add_button(window, button_click, key,
                                   column, row)
 
         column, row = get_next_cell(column, row)
