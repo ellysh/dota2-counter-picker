@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from enum import Enum
-from .persistence import Pickle
+from .database import Pickle
 
 
 class Color(Enum):

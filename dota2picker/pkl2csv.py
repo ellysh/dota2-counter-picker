@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from .persistence import Csv, Pickle
+from .database import Csv, Pickle
 
 
 def main():

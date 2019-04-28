@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import sys
-from .persistence import Pickle
+from .database import Pickle
 
 _ADD_COMMAND = "-a"
 _DELETE_COMMAND = "-d"
