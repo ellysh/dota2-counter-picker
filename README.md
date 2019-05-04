@@ -75,11 +75,11 @@ Dota2picker will be installed to the `~/.local/bin` directory.
 
 ### Picker
 
-The `d2-picker.py` script shows you which heroes are bad or good against the chosen one. Also, the script shows which heroes can be combined well.
+The `d2-picker` script shows you which heroes are bad or good against the chosen one. Also, the script shows which heroes can be combined well.
 
 ![Picker Script](dota2picker/images/readme/picker-window.png)
 
-Start the `d2-picker.py` script and click on the hero icon. The yellow color will highlight it. The red color highlights all heroes who can easily beat the selected one. We can say that the selected hero is "bad against" them. The green color means that the chosen hero is "good against" the selected ones. The blue color shows heroes which can be combined effectively with the selected hero in one team. It means that he "works well with" them.
+Start the `d2-picker` script and click on the hero icon. The yellow color will highlight it. The red color highlights all heroes who can easily beat the selected one. We can say that the selected hero is "bad against" them. The green color means that the chosen hero is "good against" the selected ones. The blue color shows heroes which can be combined effectively with the selected hero in one team. It means that he "works well with" them.
 
 The script allows you to pick several heroes at the same time. Then it shows relations of all picked heroes.
 
@@ -99,11 +99,11 @@ You can cancel the current selection of heroes by the *Esc* button.
 
 ### Editor
 
-The initial version of the database with heroes was prepared based on the [Dota 2 Wiki](https://dota2.gamepedia.com/Category:Counters). The `d2-editor.py` script allows you to edit this database.
+The initial version of the database with heroes was prepared based on the [Dota 2 Wiki](https://dota2.gamepedia.com/Category:Counters). The `d2-editor` script allows you to edit this database.
 
 ![Editor Script](dota2picker/images/readme/editor-window.png)
 
-Start the `d2-editor.py` script. It looks like the `d2-picker.py` script. Meaning of all colors is the same.
+Start the `d2-editor` script. It looks like the `d2-picker` script. Meaning of all colors is the same.
 
 These are steps to remove the hero from the "bad against..." relations:
 
@@ -117,7 +117,7 @@ These are steps to remove the hero from the "bad against..." relations:
 
 You can follow the same algorithm for adding a hero to relations. Also, you should follow the same steps for adding/removing a hero to the "good against..." and "works well with..." relations.
 
-The `d2-picker.py`, `d2-checker.py` and `d2-editor.py` scripts use the same database. It means that you will see all your changes in all these scripts.
+The `d2-picker`, `d2-checker` and `d2-editor` scripts use the same database. It means that you will see all your changes in all these scripts.
 
 This is path to database with heroes on Linux:<br/>
 `~/.local/share/dota2picker/Database.pkl`
@@ -127,7 +127,7 @@ This is path to database with heroes on Windows:<br/>
 
 ### Checker
 
-After editing the database, you want to check if it is consistent. The possible issue is you specify a hero A as "bad against..." the hero B but you forget to specify vice versa relation. This relation means that the hero B should be "good against..." the hero A. The `d2-checker.py` script checks for such kind of mistakes in the database. If you launch the script in the console (or Command Prompt on Windows), you see the report about such mistakes.
+After editing the database, you want to check if it is consistent. The possible issue is you specify a hero A as "bad against..." the hero B but you forget to specify vice versa relation. This relation means that the hero B should be "good against..." the hero A. The `d2-checker` script checks for such kind of mistakes in the database. If you launch the script in the console (or Command Prompt on Windows), you see the report about such mistakes.
 
 This is an example output of the script:
 ```
@@ -154,25 +154,25 @@ This is a possible output of these mistakes:
 Naga Siren has Huskar in both "bad against" and "good against" lists
 Huskar has Naga Siren in both "bad against" and "good against" lists
 ```
-It means that Naga Siren and Huskar has conflicting relations and counters each other. You should fix it by the `d2-editor.py` script in three steps:
+It means that Naga Siren and Huskar has conflicting relations and counters each other. You should fix it by the `d2-editor` script in three steps:
 
 1. Remove Naga Siren from the "good against..." list of Huskar.
 
 2. Remove Huskar from the "bad against..." list of Naga Siren.
 
-3. Launch the `d2-checker.py` script again.
+3. Launch the `d2-checker` script again.
 
 Now the report about conflicts should be empty.
 
-The `d2-checker.py` script works with the database in the Pickle format (the `Database.pkl` file).
+The `d2-checker` script works with the database in the Pickle format (the `Database.pkl` file).
 
 ### Import and Export
 
-The `d2-picker.py`, `d2-checker.py` and `d2-editor.py` scripts use the database in the Pickle format (the `Database.pkl` file). This is a binary format, which is not convenient for reviewing in a text editor and comparing with other database files.
+The `d2-picker`, `d2-checker` and `d2-editor` scripts use the database in the Pickle format (the `Database.pkl` file). This is a binary format, which is not convenient for reviewing in a text editor and comparing with other database files.
 
-The `d2-pkl2csv.py` script allows you to convert the database from the Pickle format to the CSV. If you launch the script, you get the `Database.csv` file in the database directory (see the "Editor" section). You can open this file in any text editor or MS/Libre Office application.
+The `d2-pkl2csv` script allows you to convert the database from the Pickle format to the CSV. If you launch the script, you get the `Database.csv` file in the database directory (see the "Editor" section). You can open this file in any text editor or MS/Libre Office application.
 
-When you are done with reviewing the database in the CSV format, you should launch the `d2-csv2pkl.py` script. It converts the database back to the Pickle format and stores it in the `Database.pkl` file.
+When you are done with reviewing the database in the CSV format, you should launch the `d2-csv2pkl` script. It converts the database back to the Pickle format and stores it in the `Database.pkl` file.
 
 ## Update
 
