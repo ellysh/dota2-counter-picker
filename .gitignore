@@ -1,4 +1,5 @@
 *.ods#
+*.pyc
 build/
 dist/
 dota2picker.egg-info/
